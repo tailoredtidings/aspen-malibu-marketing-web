@@ -4,29 +4,29 @@ const SERVICES = [
   {
     num: '01',
     title: <>Search Engine <em>Optimization</em></>,
-    desc: 'Rank where your customers are already looking. Technical SEO, local dominance, and content that earns authority — built to compound over quarters, not fade after a month.',
-    features: ['Technical audits & site health','Local SEO & Google Business','Content strategy & blogging','Backlink acquisition','Rank tracking & reporting'],
+    desc: 'Show up where buyers are already searching. We turn organic traffic into a predictable revenue channel — not just rankings, but qualified leads that close.',
+    features: ['Local SEO that drives appointments','Content that ranks AND converts','Technical fixes for crawl budget','Backlinks from real authority sites','Monthly rank & revenue reporting'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5"/><path d="M16 16l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
   {
     num: '02',
     title: <>Paid Ads <em>Management</em></>,
-    desc: 'We buy customers, not clicks. Every dollar is tracked to revenue. We manage Google, Meta, TikTok, and YouTube — optimizing daily against real profit, not vanity metrics.',
-    features: ['Google & Meta ads','TikTok & YouTube campaigns','Retargeting & remarketing','Creative testing & scaling','Forensic spend audits'],
+    desc: 'We buy customers, not clicks. Every dollar is tracked to revenue — not impressions. If an ad does not pay for itself in 30 days, we kill it and build a better one.',
+    features: ['Google & Meta ads optimized for ROAS','TikTok & YouTube for scale','Retargeting that recovers lost buyers','Creative testing every 72 hours','Forensic audits of wasted spend'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
   {
     num: '03',
     title: <>Conversion <em>Funnels</em></>,
-    desc: 'A beautiful site means nothing if it does not convert. We architect landing pages, lead magnets, and nurture sequences that turn traffic into qualified appointments.',
-    features: ['Landing page design','Lead magnet creation','Email & SMS nurture','A/B testing','Form optimization'],
+    desc: 'Traffic is worthless if it bounces. We architect pages, forms, and follow-up sequences that turn strangers into appointments — automatically, 24/7.',
+    features: ['High-converting landing pages','Lead magnets your audience actually wants','Email & SMS nurture that books calls','A/B testing for constant lift','Form optimization to reduce friction'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h12M3 18h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
   {
     num: '04',
     title: <>AI <em>Automation</em></>,
-    desc: 'Your team should not be doing work a machine can do. We deploy AI agents for voice, chat, content, and reviews — so your humans focus on what only humans can do.',
-    features: ['Conversation AI chatbots','Voice AI phone agents','Content AI writing','Reviews AI monitoring','Workflow automation'],
+    desc: 'Your best employee never sleeps, never calls in sick, and costs less than minimum wage. AI agents handle voice, chat, content, and reviews — so your team closes deals.',
+    features: ['Voice AI that books while you sleep','Chatbots that qualify before you call back','Content AI that writes on-brand at scale','Reviews AI that builds 5-star reputation','Workflows that eliminate manual follow-up'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="currentColor" strokeWidth="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
 ];
@@ -38,8 +38,8 @@ function Services() {
       <div className="container">
         <div className="sec-head center reveal" ref={window.useReveal()}>
           <span className="sec-tag">03.5 — Services</span>
-          <h2 className="sec-title">What we <em>do best.</em></h2>
-          <p className="sec-sub">Four core disciplines. One integrated system. Every service is designed to feed the next — so your marketing compounds instead of fragmenting.</p>
+          <h2 className="sec-title">Four ways we <em>make you money.</em></h2>
+          <p className="sec-sub">Every service is measured by one metric: revenue generated. Not impressions. Not likes. Real customers, real bookings, real profit.</p>
         </div>
         <div className="services-grid reveal-stagger" ref={window.useReveal()}>
           {SERVICES.map((s, i) => (

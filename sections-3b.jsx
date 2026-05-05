@@ -43,6 +43,7 @@ const fmt = n => n >= 1000 ? '$' + n.toLocaleString('en-US') : '$' + n;
 
 /* ===== ESTIMATE ===== */
 function Estimate() {
+  const [showLead, setShowLead] = useState(false);
   const [product, setProduct] = useState('site');
   const [withSite, setWithSite] = useState(false);
   const [siteComplexity, setSiteComplexity] = useState(1);
@@ -80,7 +81,9 @@ function Estimate() {
   const tog = useCallback(id => setAddons(p => ({ ...p, [id]: !p[id] })), []);
 
   return (
-    <section id="estimate" className="est-section">
+    <>
+      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="estimate" />}
+      <section id="estimate" className="est-section">
       <div className="container">
         <div className="sec-head reveal" ref={window.useReveal()}>
           <span className="sec-tag">05 — Investment Estimator</span>
@@ -208,16 +211,17 @@ function Estimate() {
                 <div className="est-sum-fig">{fmt(totals.monthly)}<span className="per">/mo</span></div>
               </div>
 
-              <a href="mailto:partners@aspenmalibumarketing.com" className="est-sum-cta">
+              <button className="est-sum-cta" onClick={() => setShowLead(true)}>
                 Lock in this scope
                 <IconArrow />
-              </a>
+              </button>
               <p className="est-sum-note">Prices reflect our official rate card. Final scope confirmed on a free 30-min call. Minimum 3-month commitment.</p>
             </div>
           </aside>
         </div>
       </div>
     </section>
+    </>
   );
 }
 

@@ -3,11 +3,11 @@ const { useState } = React;
 
 /* ===== PROCESS ===== */
 const PROCESS_STEPS = [
-  { n: 'STEP 01', t: <>Discovery &amp; <em>strategy</em></>, d: 'Forensic audit of your funnel, spend, and competitors. You leave kickoff with a real plan — not a deck.' },
-  { n: 'STEP 02', t: <>Build the <em>foundation</em></>, d: 'A bespoke site and conversion funnel, wired into the CRM, automation, and AI layers from day one.' },
-  { n: 'STEP 03', t: <>Deploy the <em>agents</em></>, d: 'Voice AI on the phones. Conversation AI on every channel. Content AI shipping. Reviews AI compounding.' },
-  { n: 'STEP 04', t: <>Acquire &amp; <em>optimize</em></>, d: 'Paid acquisition where it pays. SEO where it compounds. Tuned weekly against cash collected.' },
-  { n: 'STEP 05', t: <>The <em>compound</em></>, d: 'Live dashboard, monthly strategy calls, and a system that gets sharper every week. Forever.' },
+  { n: 'STEP 01', t: <>Find the <em>leaks</em></>, d: 'We audit your entire funnel, ad spend, and website to find exactly where you are losing revenue. You get a video breakdown — not a deck.' },
+  { n: 'STEP 02', t: <>Build the <em>machine</em></>, d: 'A high-converting site and funnel, wired into CRM, automation, and AI — so every visitor has a path to becoming a customer.' },
+  { n: 'STEP 03', t: <>Turn on the <em>engine</em></>, d: 'Voice AI answers every call. Chat AI qualifies every lead. Content AI ships daily. Reviews AI compounds your reputation. 24/7.' },
+  { n: 'STEP 04', t: <>Buy <em>customers</em></>, d: 'Paid ads optimized for profit, not vanity. SEO that compounds monthly. Every dollar is tracked to revenue — and tuned weekly.' },
+  { n: 'STEP 05', t: <>Scale the <em>profit</em></>, d: 'Live revenue dashboard, monthly strategy calls, and a system that gets more efficient every week. Forever.' },
 ];
 
 function Process() {
@@ -16,8 +16,8 @@ function Process() {
       <div className="container">
         <div className="sec-head reveal" ref={window.useReveal()}>
           <span className="sec-tag">06 — Process</span>
-          <h2 className="sec-title">From kickoff to <em>compounding</em><br/>in 14 days.</h2>
-          <p className="sec-sub">A senior team and an AI agent stack designed to ship — not deliberate. Live in two weeks, profitable inside ninety days.</p>
+          <h2 className="sec-title">From audit to <em>profit</em><br/>in 14 days.</h2>
+          <p className="sec-sub">A proven system designed to generate revenue fast — not just look good. Live in two weeks, cash-flow positive inside ninety days.</p>
         </div>
         <div className="process-rail reveal-stagger" ref={window.useReveal()}>
           {PROCESS_STEPS.map((s, i) => (
@@ -35,10 +35,10 @@ function Process() {
 
 /* ===== METRICS ===== */
 const METRICS_DATA = [
-  ['5.8', '×', 'Avg ROAS', 'Across full-managed accounts.'],
-  ['$42.7', 'M', 'Pipeline generated', 'New revenue from client systems.'],
-  ['14', 'd', 'To launch', 'Standard. Rush available in 7.'],
-  ['96', '%', 'Retention', 'Clients active year-over-year.'],
+  ['5.8', '×', 'Avg ROAS', 'Every dollar returns $5.80 in revenue.'],
+  ['$42.7', 'M', 'Revenue generated', 'Real pipeline from client systems.'],
+  ['14', 'd', 'To first lead', 'Standard. Rush available in 7.'],
+  ['96', '%', 'Retention', 'Clients stay because it pays for itself.'],
 ];
 
 function Metrics() {
@@ -47,7 +47,8 @@ function Metrics() {
       <div className="container">
         <div className="sec-head reveal" ref={window.useReveal()}>
           <span className="sec-tag">07 — Receipts</span>
-          <h2 className="sec-title">The numbers that <em>matter.</em></h2>
+          <h2 className="sec-title">Your money, <em>multiplied.</em></h2>
+          <p className="sec-sub">We do not report impressions. We report revenue. Here is what happens when the engine runs.</p>
         </div>
         <div className="metrics-row reveal" ref={window.useReveal()}>
           {METRICS_DATA.map((m, i) => (
@@ -130,22 +131,24 @@ function FAQ() {
 /* ===== CTA ===== */
 function CTA() {
   const [showModal, setShowModal] = useState(false);
+  const [showLead, setShowLead] = useState(false);
   return (
     <section id="cta" className="cta-section">
       {showModal && <window.SignupModal onClose={() => setShowModal(false)} />}
+      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="cta" />}
       <div className="cta-bg"></div>
       <div className="container">
         <div className="cta-inner reveal" ref={window.useReveal()}>
           <span className="cta-badge"><span className="live-dot"></span>LIMITED ONBOARDING · Q2 2026</span>
-          <h2 className="cta-title">Build your <em>tide.</em></h2>
-          <p className="cta-desc">One 30-minute call. We audit your funnel, scope the system, and tell you honestly if we're the right fit. No pitch deck, no pressure.</p>
+          <h2 className="cta-title">Find the revenue you're <em>leaking.</em></h2>
+          <p className="cta-desc">Request a free 3-minute audit video. We'll analyze your funnel, ads, and website — then show you exactly where you're losing customers and how to fix it. No pitch. No pressure. Just answers.</p>
           <div className="cta-actions">
-            <a href="mailto:partners@aspenmalibumarketing.com" className="btn-primary">
-              Book a discovery call
+            <button className="btn-primary" onClick={() => setShowLead(true)}>
+              Get my free audit
               <span className="arrow">
                 <IconArrow />
               </span>
-            </a>
+            </button>
             <button className="btn-outline" onClick={() => setShowModal(true)}>
               Sign up for Growth Accelerator
             </button>
@@ -173,9 +176,11 @@ function CTA() {
 /* ===== FOOTER ===== */
 function Footer() {
   const [showModal, setShowModal] = useState(false);
+  const [showLead, setShowLead] = useState(false);
   return (
     <footer className="footer">
       {showModal && <window.SignupModal onClose={() => setShowModal(false)} />}
+      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="footer" />}
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
@@ -202,7 +207,9 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h4>Connect</h4>
-            <a href="#cta">Book a call</a>
+            <button onClick={() => setShowLead(true)} style={{display:'block',fontSize:14,color:'rgba(250,250,248,0.72)',padding:'5px 0',transition:'color .2s',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
+              Book a free audit
+            </button>
             <button onClick={() => setShowModal(true)} style={{display:'block',fontSize:14,color:'rgba(250,250,248,0.72)',padding:'5px 0',transition:'color .2s',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
               Sign up — Growth Accelerator
             </button>

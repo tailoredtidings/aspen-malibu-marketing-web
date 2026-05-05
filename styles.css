@@ -1661,7 +1661,20 @@ section { position: relative; padding: 120px 0; }
 }
 .modal-field input:focus { border-color: var(--teal); background: var(--paper); }
 .modal-field input::placeholder { color: var(--bone); }
-
+.modal-field textarea {
+  padding: 12px 14px;
+  background: var(--paper-2);
+  border: 1.5px solid var(--line-2);
+  border-radius: 10px;
+  font-family: 'Geist', sans-serif;
+  font-size: 14.5px;
+  color: var(--ink);
+  transition: border-color .2s;
+  outline: none;
+  min-height: 80px;
+}
+.modal-field textarea:focus { border-color: var(--teal); background: var(--paper); }
+.modal-field textarea::placeholder { color: var(--bone); }
 
 /* ============================================
    PROCESS

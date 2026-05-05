@@ -19,30 +19,34 @@ function useReveal() {
 /* ===== NAV ===== */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [showLead, setShowLead] = useState(false);
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', h, { passive: true });
     return () => window.removeEventListener('scroll', h);
   }, []);
   return (
-    <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
-      <a href="#top" className="nav-logo">
-        <img src="assets/am-logo.png" alt="Aspen Malibu" />
-        <span className="nav-logo-text">Aspen<em>Malibu</em></span>
-      </a>
-      <div className="nav-links">
-        <a href="#ai" className="nav-link">AI Engine</a>
-        <a href="#services" className="nav-link">Services</a>
-        <a href="#pricing" className="nav-link">Pricing</a>
-        <a href="#estimate" className="nav-link">Estimate</a>
-        <a href="#reviews" className="nav-link">Reviews</a>
-        <a href="#results" className="nav-link">Results</a>
-      </div>
-      <a href="#cta" className="nav-cta">
-        Book a call
-        <IconArrow size={13} stroke={1.5} />
-      </a>
-    </nav>
+    <>
+      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="nav" />}
+      <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
+        <a href="#top" className="nav-logo">
+          <img src="assets/am-logo.png" alt="Aspen Malibu" />
+          <span className="nav-logo-text">Aspen<em>Malibu</em></span>
+        </a>
+        <div className="nav-links">
+          <a href="#ai" className="nav-link">AI Engine</a>
+          <a href="#services" className="nav-link">Services</a>
+          <a href="#pricing" className="nav-link">Pricing</a>
+          <a href="#estimate" className="nav-link">Estimate</a>
+          <a href="#reviews" className="nav-link">Reviews</a>
+          <a href="#results" className="nav-link">Results</a>
+        </div>
+        <button className="nav-cta" onClick={() => setShowLead(true)}>
+          Book a call
+          <IconArrow size={13} stroke={1.5} />
+        </button>
+      </nav>
+    </>
   );
 }
 
@@ -66,22 +70,22 @@ function Hero() {
         </span>
 
         <h1 className="hero-title">
-          <span className="line"><span className="word">The growth engine</span></span>
-          <span className="line"><span className="word">that <em>runs itself.</em></span></span>
+          <span className="line"><span className="word">More leads.</span></span>
+          <span className="line"><span className="word">Less work. <em>More profit.</em></span></span>
         </h1>
 
         <p className="hero-desc">
-          A complete marketing system — website, funnels, automation, ads, and AI agents that book your calendar, answer your phones, and write your content. We build it, run it, compound it.
+          We build and run the complete revenue engine — AI agents that book your calendar, ads that print customers, and funnels that convert while you sleep. You focus on delivery; we focus on growth.
         </p>
 
         <div className="hero-actions">
           <a href="#cta" className="btn-primary">
-            Start your engine
+            Get my free audit
             <span className="arrow">
               <IconArrow />
             </span>
           </a>
-          <a href="#ai" className="btn-outline">See the AI stack</a>
+          <a href="#ai" className="btn-outline">See how it works</a>
         </div>
 
         <div className="hero-cards">
@@ -156,9 +160,9 @@ function LogoStrip() {
 }
 
 const MANIFESTO_PILLARS = [
-  ['Philosophy','Every campaign, every page, every automation feeds the next. Nothing exists in isolation. The system is the strategy.'],
-  ['Edge','We run a tech company that happens to do marketing. AI agents handle the volume; a small senior team handles the taste.'],
-  ['Practice','We onboard a small number of clients per quarter, by design. Premium time, premium outcomes — no volume shops.'],
+  ['Systems over tactics','Every campaign, every page, every automation feeds the next. Nothing exists in isolation. The result is compounding revenue — not one-off wins.'],
+  ['AI + senior taste','AI agents handle the volume; a small senior team handles the strategy. You get the throughput of a big shop with the taste of a boutique.'],
+  ['Built to profit','We onboard a small number of clients per quarter, by design. Premium time, premium outcomes — and a system that pays for itself inside 90 days.'],
 ];
 
 /* ===== MANIFESTO ===== */
@@ -168,10 +172,10 @@ function Manifesto() {
       <div className="container">
         <div className="manifesto-grid reveal" ref={useReveal()}>
           <div>
-            <span className="sec-tag" style={{marginBottom: 20}}>01 — The Studio</span>
+            <span className="sec-tag" style={{marginBottom: 20}}>01 — Why This Works</span>
           </div>
           <h2 className="manifesto-title">
-            We build <em>growth machines</em> the way good architects build houses — deliberately, with a quiet obsession for what <span className="teal">compounds.</span>
+            We do not do <em>marketing.</em> We build <em>profit machines</em> — deliberately, with a quiet obsession for what <span className="teal">compounds.</span>
           </h2>
         </div>
         <div className="manifesto-pillars reveal-stagger" ref={useReveal()}>
