@@ -9,10 +9,13 @@ const App = () => (
       <window.Manifesto />
       <window.AIEngine />
       <window.Capabilities />
+      <window.Services />
       <window.Tiers />
       <window.Estimate />
       <window.Process />
+      <window.Testimonials />
       <window.Metrics />
+      <window.Campaigns />
       <window.FAQ />
       <window.CTA />
     </main>

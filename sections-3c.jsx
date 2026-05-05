@@ -150,6 +150,20 @@ function CTA() {
               Sign up for Growth Accelerator
             </button>
           </div>
+          <div className="trust-row">
+            <div className="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              3-month minimum. Cancel anytime.
+            </div>
+            <div className="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              96% client retention
+            </div>
+            <div className="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              14 days to live
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -194,6 +208,20 @@ function Footer() {
             </button>
             <a href="mailto:partners@aspenmalibumarketing.com">Email</a>
             <a href="#" aria-disabled="true">LinkedIn</a>
+          </div>
+        </div>
+        <div className="footer-trust">
+          <div className="footer-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            No long-term lock-in
+          </div>
+          <div className="footer-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            5-star rated operations
+          </div>
+          <div className="footer-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Your data & assets stay yours
           </div>
         </div>
         <div className="footer-wordmark">Aspen<em>Malibu</em></div>

@@ -32,9 +32,10 @@ function Nav() {
       </a>
       <div className="nav-links">
         <a href="#ai" className="nav-link">AI Engine</a>
-        <a href="#capabilities" className="nav-link">Capabilities</a>
+        <a href="#services" className="nav-link">Services</a>
         <a href="#pricing" className="nav-link">Pricing</a>
         <a href="#estimate" className="nav-link">Estimate</a>
+        <a href="#reviews" className="nav-link">Reviews</a>
         <a href="#results" className="nav-link">Results</a>
       </div>
       <a href="#cta" className="nav-cta">

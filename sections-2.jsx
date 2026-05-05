@@ -170,6 +170,7 @@ function Capabilities() {
             <div>
               <div className="bc-eye">● Ad Management</div>
               <h3>Spend that <em>compounds.</em></h3>
+              <p style={{fontSize:12.5,color:'rgba(250,250,248,0.55)',marginTop:6,lineHeight:1.5}}>Google · Meta · TikTok · YouTube · X. We optimize daily against revenue, not vanity.</p>
             </div>
             <div className="bc-viz">
               <div className="b-ad">
@@ -177,6 +178,9 @@ function Capabilities() {
                 <div className="b-ad-cell"><div className="b-ad-lbl">CPA</div><div className="b-ad-val">$24</div></div>
                 <div className="b-ad-cell"><div className="b-ad-lbl">Spend</div><div className="b-ad-val">$18.4K</div></div>
                 <div className="b-ad-cell"><div className="b-ad-lbl">Revenue</div><div className="b-ad-val up">$107K</div></div>
+              </div>
+              <div className="b-ad-platforms">
+                {['Google Ads','Meta','TikTok','YouTube','X'].map(p => <span key={p} className="b-ad-platform">{p}</span>)}
               </div>
             </div>
           </div>
