@@ -73,11 +73,11 @@ function LeadCapture({ onClose, source = 'general' }) {
               <div className="modal-field-row">
                 <div className="modal-field">
                   <label htmlFor="lc-fname">First name *</label>
-                  <input id="lc-fname" type="text" placeholder="Kaila" value={form.firstName} onChange={e => update('firstName', e.target.value)} />
+                  <input id="lc-fname" type="text" placeholder="John" value={form.firstName} onChange={e => update('firstName', e.target.value)} />
                 </div>
                 <div className="modal-field">
                   <label htmlFor="lc-lname">Last name *</label>
-                  <input id="lc-lname" type="text" placeholder="Sclabassi" value={form.lastName} onChange={e => update('lastName', e.target.value)} />
+                  <input id="lc-lname" type="text" placeholder="Doe" value={form.lastName} onChange={e => update('lastName', e.target.value)} />
                 </div>
               </div>
               <div className="modal-field">
