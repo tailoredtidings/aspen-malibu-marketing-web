@@ -3,7 +3,7 @@ const { useState } = React;
 
 /* ===== PROCESS ===== */
 const PROCESS_STEPS = [
-  { n: 'STEP 01', t: <>Find the <em>leaks</em></>, d: 'We audit your entire funnel, ad spend, and website to find exactly where you are losing revenue. You get a video breakdown — not a deck.' },
+  { n: 'STEP 01', t: <>Find the <em>leaks</em></>, d: 'Forensic audit of your funnel, ad accounts, and website. We find exactly where you are losing revenue — including hidden ad waste most agencies miss. You get a video breakdown — not a deck.' },
   { n: 'STEP 02', t: <>Build the <em>machine</em></>, d: 'A high-converting site and funnel, wired into CRM, automation, and AI — so every visitor has a path to becoming a customer.' },
   { n: 'STEP 03', t: <>Turn on the <em>engine</em></>, d: 'Voice AI answers every call. Chat AI qualifies every lead. Content AI ships daily. Reviews AI compounds your reputation. 24/7.' },
   { n: 'STEP 04', t: <>Buy <em>customers</em></>, d: 'Paid ads optimized for profit, not vanity. SEO that compounds monthly. Every dollar is tracked to revenue — and tuned weekly.' },
@@ -93,7 +93,8 @@ const FAQS = [
   { q: 'Why no fixed prices shown on the tier cards?', a: "Because Bespoke Service and Website builds are scoped to your business. The estimator uses our official rate card — you get the real number instantly, and we confirm it on a free 30-min call." },
   { q: 'How fast can we go live?', a: 'Standard is 14 days from kickoff. Rush (7 days) is available as an add-on. Full ad campaigns and the AI agent stack roll out in the first 30 days.' },
   { q: "What's in the platform?", a: 'CRM, pipeline, booking, email & SMS marketing, social scheduling, workflow automation, reputation management, real-time reporting, plus four AI layers — Conversation, Voice, Content, and Reviews. Everything talks to everything else.' },
-  { q: 'Do you handle paid ads?', a: 'Yes — Google and Meta primarily, paid social where it converts. Ad management is 15% of spend. No minimums; you pay for what we run.' },
+  { q: 'Do you handle paid ads?', a: 'Yes — Google and Meta primarily, paid social where it converts. Ad management is 15% of spend. No minimums; you pay for what we run. Every Bespoke engagement includes a forensic ad account audit that finds hidden waste most agencies miss.' },
+  { q: 'What is the forensic ad audit?', a: 'A deep, AI-powered analysis of your Google, Meta, and TikTok ad accounts. We connect read-only access and within minutes identify exactly where your budget is leaking — wasted keywords, poor targeting, overlap, and missed opportunities. It is available as a paid add-on for Growth Accelerator and included in every Bespoke engagement.' },
   { q: 'What happens if I want to cancel?', a: '30 days written notice, 3-month minimum commitment. Your website and content are yours — we hand over the keys cleanly. No exit fees.' },
 ];
 

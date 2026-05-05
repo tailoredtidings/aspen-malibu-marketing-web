@@ -12,7 +12,7 @@ const SERVICES = [
     num: '02',
     title: <>Paid Ads <em>Management</em></>,
     desc: 'We buy customers, not clicks. Every dollar is tracked to revenue — not impressions. If an ad does not pay for itself in 30 days, we kill it and build a better one.',
-    features: ['Google & Meta ads optimized for ROAS','TikTok & YouTube for scale','Retargeting that recovers lost buyers','Creative testing every 72 hours','Forensic audits of wasted spend'],
+    features: ['Google & Meta ads optimized for ROAS','TikTok & YouTube for scale','Retargeting that recovers lost buyers','Creative testing every 72 hours','Forensic spend analysis included'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
   {
