@@ -1,0 +1,28 @@
+# Vercel
+.vercel
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads (large files not needed for deploy)
+uploads/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts (if any)
+dist/
+build/
