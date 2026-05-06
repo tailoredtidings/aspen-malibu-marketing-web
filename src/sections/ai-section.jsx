@@ -1,4 +1,7 @@
-/* global React */
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 
 const AI_AGENTS = [
   { tag:'24/7', name:<>Conversation <em>AI</em></>, desc:'Smart chatbots that qualify leads, answer questions, and book appointments across SMS, email, web chat, and social — in your voice.', icon:<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 11.5c0 4.5-4 8-9 8-1.6 0-3-.3-4.4-.9L3 20l1.4-4.6C3.5 14 3 12.8 3 11.5 3 7 7 3.5 12 3.5s9 3.5 9 8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg> },
@@ -12,12 +15,12 @@ function AIEngine() {
   return (
     <section className="ai-section" id="ai">
       <div className="container">
-        <div className="sec-head center reveal" ref={window.useReveal()}>
+        <div className="sec-head center reveal" ref={useReveal()}>
           <span className="sec-tag">02 — AI Engine</span>
           <h2 className="sec-title">An agent stack that works<br/><em>while you sleep.</em></h2>
           <p className="sec-sub">Four senior AI agents in permanent deployment — your front line, your back office, and your content team rolled into one system.</p>
         </div>
-        <div className="ai-orb-area reveal" ref={window.useReveal()}>
+        <div className="ai-orb-area reveal" ref={useReveal()}>
           <div className="ai-ring"></div>
           <div className="ai-ring r2"></div>
           <div className="ai-core">
@@ -38,7 +41,7 @@ function AIEngine() {
             </div>
           ))}
         </div>
-        <div className="ai-cards-grid reveal-stagger" ref={window.useReveal()}>
+        <div className="ai-cards-grid reveal-stagger" ref={useReveal()}>
           {AI_AGENTS.map((a,i) => (
             <div key={i} className="ai-card">
               <span className="ai-card-badge">{a.tag}</span>
@@ -58,12 +61,12 @@ function Capabilities() {
   return (
     <section className="cap-section" id="capabilities">
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">03 — Capabilities</span>
           <h2 className="sec-title">Every channel.<br/><em>One system.</em></h2>
           <p className="sec-sub">A full operating system for marketing — CRM, automation, ads, SEO, reputation, content — engineered to compound, not just run.</p>
         </div>
-        <div className="bento reveal-stagger" ref={window.useReveal()}>
+        <div className="bento reveal-stagger" ref={useReveal()}>
 
           {/* CRM / Pipeline — 6 col */}
           <div className="bc bc-6">
@@ -214,4 +217,6 @@ function Capabilities() {
   );
 }
 
-Object.assign(window, { AIEngine, Capabilities });
+
+
+export { AIEngine, Capabilities }

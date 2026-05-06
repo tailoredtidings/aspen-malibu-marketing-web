@@ -1,4 +1,7 @@
-/* global React */
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 
 const SERVICES = [
   {
@@ -36,12 +39,12 @@ function Services() {
   return (
     <section className="services-section" id="services">
       <div className="container">
-        <div className="sec-head center reveal" ref={window.useReveal()}>
+        <div className="sec-head center reveal" ref={useReveal()}>
           <span className="sec-tag">03.5 — Services</span>
           <h2 className="sec-title">Four ways we <em>make you money.</em></h2>
           <p className="sec-sub">Every service is measured by one metric: revenue generated. Not impressions. Not likes. Real customers, real bookings, real profit.</p>
         </div>
-        <div className="services-grid reveal-stagger" ref={window.useReveal()}>
+        <div className="services-grid reveal-stagger" ref={useReveal()}>
           {SERVICES.map((s, i) => (
             <div key={i} className="service-card">
               <div className="service-card-top">
@@ -95,12 +98,12 @@ function Testimonials() {
   return (
     <section className="testimonials-section" id="reviews">
       <div className="container">
-        <div className="sec-head center reveal" ref={window.useReveal()}>
+        <div className="sec-head center reveal" ref={useReveal()}>
           <span className="sec-tag">06.5 — Reviews</span>
           <h2 className="sec-title">Clients who <em>stayed.</em></h2>
           <p className="sec-sub">96% retention year-over-year. Here's what a few of them say about working with the engine.</p>
         </div>
-        <div className="testimonials-grid reveal-stagger" ref={window.useReveal()}>
+        <div className="testimonials-grid reveal-stagger" ref={useReveal()}>
           {TESTIMONIALS.map((t, i) => (
             <div key={i} className="testimonial-card">
               <div className="testimonial-metric">
@@ -179,12 +182,12 @@ function Campaigns() {
   return (
     <section className="campaigns-section" id="campaigns">
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">07.5 — Campaigns</span>
           <h2 className="sec-title">Results that <em>speak.</em></h2>
           <p className="sec-sub">Real clients. Real numbers. Every campaign is built on research, creative precision, and daily optimization — not guesswork.</p>
         </div>
-        <div className="campaigns-grid reveal-stagger" ref={window.useReveal()}>
+        <div className="campaigns-grid reveal-stagger" ref={useReveal()}>
           {CAMPAIGNS.map((c, i) => (
             <div key={i} className="campaign-card">
               <div className="campaign-card-top">
@@ -211,4 +214,6 @@ function Campaigns() {
   );
 }
 
-Object.assign(window, { Services, Testimonials, Campaigns });
+
+
+export { Services, Testimonials, Campaigns }

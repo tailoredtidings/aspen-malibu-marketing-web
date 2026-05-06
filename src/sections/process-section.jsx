@@ -1,5 +1,7 @@
-/* global React */
-const { useState } = React;
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 
 /* ===== PROCESS ===== */
 const PROCESS_STEPS = [
@@ -14,12 +16,12 @@ function Process() {
   return (
     <section id="process" className="process-section">
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">06 — Process</span>
           <h2 className="sec-title">From audit to <em>profit</em><br/>in 14 days.</h2>
           <p className="sec-sub">A proven system designed to generate revenue fast — not just look good. Live in two weeks, cash-flow positive inside ninety days.</p>
         </div>
-        <div className="process-rail reveal-stagger" ref={window.useReveal()}>
+        <div className="process-rail reveal-stagger" ref={useReveal()}>
           {PROCESS_STEPS.map((s, i) => (
             <div key={i} className="process-step">
               <span className="step-num">{s.n}</span>
@@ -45,12 +47,12 @@ function Metrics() {
   return (
     <section id="results" className="metrics-section">
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">07 — Receipts</span>
           <h2 className="sec-title">Your money, <em>multiplied.</em></h2>
           <p className="sec-sub">We do not report impressions. We report revenue. Here is what happens when the engine runs.</p>
         </div>
-        <div className="metrics-row reveal" ref={window.useReveal()}>
+        <div className="metrics-row reveal" ref={useReveal()}>
           {METRICS_DATA.map((m, i) => (
             <div key={i} className="m-cell">
               <div className="m-num">{m[0]}<span className="u">{m[1]}</span></div>
@@ -59,7 +61,7 @@ function Metrics() {
             </div>
           ))}
         </div>
-        <div className="case-card reveal" ref={window.useReveal()}>
+        <div className="case-card reveal" ref={useReveal()}>
           <div className="case-grid">
             <div>
               <span className="sec-tag" style={{ marginBottom: 20, display: 'inline-flex' }}>Featured · Bespoke Service</span>
@@ -104,13 +106,13 @@ function FAQ() {
     <section id="faq" className="faq-section">
       <div className="container">
         <div className="faq-wrap">
-          <div className="reveal" ref={window.useReveal()}>
+          <div className="reveal" ref={useReveal()}>
             <span className="sec-tag">08 — Questions</span>
             <h2 className="sec-title" style={{ marginTop: 16, fontSize: 'clamp(36px, 4.5vw, 64px)' }}>
               Quick <em>answers,</em><br />candid ones.
             </h2>
           </div>
-          <div className="faq-list reveal" ref={window.useReveal()}>
+          <div className="faq-list reveal" ref={useReveal()}>
             {FAQS.map((f, i) => (
               <div key={i} className={`faq-item ${open === i ? 'open' : ''}`}>
                 <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i} aria-controls={`faq-a-${i}`}>
@@ -135,11 +137,11 @@ function CTA() {
   const [showLead, setShowLead] = useState(false);
   return (
     <section id="cta" className="cta-section">
-      {showModal && <window.SignupModal onClose={() => setShowModal(false)} />}
-      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="cta" />}
+      {showModal && <SignupModal onClose={() => setShowModal(false)} />}
+      {showLead && <LeadCapture onClose={() => setShowLead(false)} source="cta" />}
       <div className="cta-bg"></div>
       <div className="container">
-        <div className="cta-inner reveal" ref={window.useReveal()}>
+        <div className="cta-inner reveal" ref={useReveal()}>
           <span className="cta-badge"><span className="live-dot"></span>LIMITED ONBOARDING · Q2 2026</span>
           <h2 className="cta-title">Find the revenue you're <em>leaking.</em></h2>
           <p className="cta-desc">Request a free 3-minute audit video. We'll analyze your funnel, ads, and website — then show you exactly where you're losing customers and how to fix it. No pitch. No pressure. Just answers.</p>
@@ -180,8 +182,8 @@ function Footer() {
   const [showLead, setShowLead] = useState(false);
   return (
     <footer className="footer">
-      {showModal && <window.SignupModal onClose={() => setShowModal(false)} />}
-      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="footer" />}
+      {showModal && <SignupModal onClose={() => setShowModal(false)} />}
+      {showLead && <LeadCapture onClose={() => setShowLead(false)} source="footer" />}
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
@@ -243,4 +245,6 @@ function Footer() {
   );
 }
 
-Object.assign(window, { Process, Metrics, FAQ, CTA, Footer });
+
+
+export { Process, Metrics, FAQ, CTA, Footer }

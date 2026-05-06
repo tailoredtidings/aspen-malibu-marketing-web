@@ -1,5 +1,7 @@
-/* global React */
-const { useState, useEffect } = React;
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 
 /* ===== SELF-SERVICE SIGNUP MODAL ===== */
 function SignupModal({ onClose }) {
@@ -207,12 +209,12 @@ function Tiers() {
     <section id="pricing" className="tiers-section">
       {showModal && <SignupModal onClose={() => setShowModal(false)} />}
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">04 — Engagements</span>
           <h2 className="sec-title">Three ways to <em>work together.</em></h2>
           <p className="sec-sub">Website services and marketing suite are priced separately — mix and match. Tier 02 is the only one you can start today without a call.</p>
         </div>
-        <div className="tier-grid reveal-stagger" ref={window.useReveal()}>
+        <div className="tier-grid reveal-stagger" ref={useReveal()}>
           {TIERS_DATA.map((t, i) => (
             <article key={i} className={`tier-card ${t.featured ? 'featured' : ''}`}>
               {t.featured && <span className="tier-flag">Most popular</span>}
@@ -260,4 +262,6 @@ function Tiers() {
   );
 }
 
-Object.assign(window, { SignupModal, Tiers });
+Section
+
+export { SignupModal, Tiers }

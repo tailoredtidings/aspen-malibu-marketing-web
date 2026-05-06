@@ -1,5 +1,7 @@
-/* global React */
-const { useState, useMemo, useCallback } = React;
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 
 // ── PRICING DATA (exact from pricing doc) ──
 const SITE_TIERS = [
@@ -82,16 +84,16 @@ function Estimate() {
 
   return (
     <>
-      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="estimate" />}
+      {showLead && <LeadCapture onClose={() => setShowLead(false)} source="estimate" />}
       <section id="estimate" className="est-section">
       <div className="container">
-        <div className="sec-head reveal" ref={window.useReveal()}>
+        <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">05 — Investment Estimator</span>
           <h2 className="sec-title">Build your <em>quote.</em></h2>
           <p className="sec-sub">Exact pricing from our official rate card — calibrated to your scope. Final confirmation on a free 30-min discovery call.</p>
         </div>
 
-        <div className="est-shell reveal" ref={window.useReveal()}>
+        <div className="est-shell reveal" ref={useReveal()}>
           <div className="est-panel">
 
             {/* A — Product */}
@@ -225,4 +227,6 @@ function Estimate() {
   );
 }
 
-Object.assign(window, { Estimate });
+Section
+
+export { Estimate }

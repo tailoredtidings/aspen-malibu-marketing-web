@@ -1,21 +1,7 @@
-/* global React */
-const { useState, useEffect, useRef } = React;
-
-function useReveal() {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return ref;
-}
-
+import React, { useState, useEffect, useRef } from 'react'
+import { useReveal } from '../hooks/useReveal'
+import { IconArrow } from '../components/icons'
+import { LeadCapture } from '../components/lead-capture'
 /* ===== NAV ===== */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,7 +13,7 @@ function Nav() {
   }, []);
   return (
     <>
-      {showLead && <window.LeadCapture onClose={() => setShowLead(false)} source="nav" />}
+      {showLead && <LeadCapture onClose={() => setShowLead(false)} source="nav" />}
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <a href="#top" className="nav-logo">
           <img src="assets/am-logo.png" alt="Aspen Malibu" />
@@ -50,15 +36,51 @@ function Nav() {
   );
 }
 
+/* ===== HERO BACKGROUND ===== */
+function HeroCanvas() {
+  const canvasRef = React.useRef(null)
+  React.useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    let animId
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * Math.min(window.devicePixelRatio, 2)
+      canvas.height = canvas.offsetHeight * Math.min(window.devicePixelRatio, 2)
+    }
+    resize()
+    window.addEventListener('resize', resize)
+    const blobs = [
+      { x: 0.3, y: 0.3, r: 0.4, dx: 0.0003, dy: 0.0002, hue: 42, sat: 60, light: 55 },
+      { x: 0.7, y: 0.6, r: 0.35, dx: -0.0002, dy: 0.0003, hue: 185, sat: 50, light: 45 },
+      { x: 0.5, y: 0.8, r: 0.3, dx: 0.00025, dy: -0.00015, hue: 35, sat: 70, light: 60 },
+    ]
+    const draw = () => {
+      const w = canvas.width, h = canvas.height
+      blobs.forEach(b => { b.x += b.dx; b.y += b.dy; if (b.x < -0.2 || b.x > 1.2) b.dx *= -1; if (b.y < -0.2 || b.y > 1.2) b.dy *= -1 })
+      ctx.fillStyle = '#FBF8F2'
+      ctx.fillRect(0, 0, w, h)
+      blobs.forEach(b => {
+        const g = ctx.createRadialGradient(b.x * w, b.y * h, 0, b.x * w, b.y * h, b.r * Math.max(w, h))
+        g.addColorStop(0, `hsla(${b.hue}, ${b.sat}%, ${b.light}%, 0.18)`)
+        g.addColorStop(0.5, `hsla(${b.hue}, ${b.sat}%, ${b.light}%, 0.06)`)
+        g.addColorStop(1, `hsla(${b.hue}, ${b.sat}%, ${b.light}%, 0)`)
+        ctx.fillStyle = g
+        ctx.fillRect(0, 0, w, h)
+      })
+      animId = requestAnimationFrame(draw)
+    }
+    draw()
+    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize) }
+  }, [])
+  return <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0, opacity: 0.9 }} />
+}
+
 /* ===== HERO ===== */
 function Hero() {
   return (
     <section className="hero" id="top">
-      <div className="hero-shapes" aria-hidden="true">
-        <div className="s1"></div>
-        <div className="s2"></div>
-        <div className="grid"></div>
-      </div>
+      <HeroCanvas />
 
       <div className="container hero-content">
         <span className="hero-eyebrow">
@@ -191,4 +213,19 @@ function Manifesto() {
   );
 }
 
-Object.assign(window, { useReveal, Nav, Hero, LogoStrip, Manifesto });
+
+
+function HeroSection() {
+  return (
+    <>
+      <Nav />
+      <Hero />
+      <LogoStrip />
+      <Manifesto />
+    </>
+  )
+}
+
+export default HeroSection
+
+export { Nav, Hero, LogoStrip, Manifesto }
