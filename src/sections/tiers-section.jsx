@@ -262,6 +262,4 @@ function Tiers() {
   );
 }
 
-Section
-
 export { SignupModal, Tiers }

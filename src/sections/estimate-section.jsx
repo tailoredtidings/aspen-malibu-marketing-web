@@ -227,6 +227,4 @@ function Estimate() {
   );
 }
 
-Section
-
 export { Estimate }
