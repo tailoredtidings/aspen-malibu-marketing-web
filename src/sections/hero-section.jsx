@@ -27,6 +27,15 @@ function Nav() {
           <a href="#reviews" className="nav-link">Reviews</a>
           <a href="#results" className="nav-link">Results</a>
         </div>
+        <a
+          href="https://app.aspenmalibumarketing.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-login"
+          onClick={() => window.gtag?.('event', 'nav_client_login_click')}
+        >
+          Client Login
+        </a>
         <button className="nav-cta" onClick={() => setShowLead(true)}>
           Book a call
           <IconArrow size={13} stroke={1.5} />

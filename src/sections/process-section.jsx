@@ -218,6 +218,14 @@ function Footer() {
             </button>
             <a href="mailto:partners@aspenmalibumarketing.com">Email</a>
             <a href="#" aria-disabled="true">LinkedIn</a>
+            <a
+              href="https://app.aspenmalibumarketing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{color:'var(--gold)'}}
+            >
+              Client Login →
+            </a>
           </div>
         </div>
         <div className="footer-trust">
