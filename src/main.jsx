@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import '../styles.css'
 import { useReveal } from './hooks/useReveal'
 import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from './components/icons'
@@ -75,4 +76,5 @@ const App = () => (
   </>
 )
 
-export default App
+const root = createRoot(document.getElementById('root'))
+root.render(<App />)

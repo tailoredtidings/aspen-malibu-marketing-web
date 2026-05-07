@@ -10,29 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Google Tag Manager / GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XDBHXSBCB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-3XDBHXSBCB');
     window.gtag = gtag;
   </script>
 
-  <!-- GoHighLevel Tracking -->
-  <script>
-    // TODO: Replace with your GHL location tracking code
-    window.gtag_GHL = function(event, params) {
-      // GHL webhook or tracking pixel call goes here
-      // Example: fetch('https://your-ghl-webhook-url.com/track', { method: 'POST', body: JSON.stringify({ event, params }) })
-      console.log('[GHL]', event, params);
-    };
-    window.submitGHLForm = function(data) {
-      // TODO: Replace with your GHL form submission endpoint
-      // Example: fetch('https://your-ghl-location.com/form-submission', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
-      console.log('[GHL Form]', data);
-    };
+  <!-- GoHighLevel External Tracking -->
+  <script
+    src="https://api.aspenmalibumarketing.com/js/external-tracking.js"
+    data-tracking-id="tk_7fa2783c99a6471a818664fb0bcde0e6">
   </script>
 </head>
 <body>
