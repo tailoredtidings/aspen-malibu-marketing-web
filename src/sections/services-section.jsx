@@ -71,9 +71,9 @@ function Services() {
 
 const TESTIMONIALS = [
   {
-    quote: "We went from 'I should probably do something about marketing' to a chair that books itself. The engine runs, and we just see the patients.",
-    name: 'Dr. Rishi Patel, DMD',
-    role: 'FOUNDER · LEGACY FAMILY DENTAL',
+    quote: "We went from 'I should probably do something about marketing' to a practice that books itself. The engine runs, and we just see the patients.",
+    name: 'Dr. James Chen, MD',
+    role: 'FOUNDER · MERIDIAN HEALTH PARTNERS',
     metric: '312%',
     metricLabel: 'booking increase',
   },
@@ -128,13 +128,13 @@ function Testimonials() {
 
 const CAMPAIGNS = [
   {
-    client: 'Legacy Family Dental',
-    industry: 'DENTAL · HEALTH',
+    client: 'Meridian Health Partners',
+    industry: 'MEDICAL · HEALTH',
     title: 'From invisible to fully booked.',
-    desc: 'Complete rebrand + local SEO domination + paid search + voice AI. New patient bookings increased 312% in 90 days.',
+    desc: 'Complete rebrand + local SEO domination + paid search + voice AI. New patient appointments increased 312% in 90 days.',
     tags: ['Local SEO','Google Ads','Voice AI'],
     stats: [
-      { label: 'New bookings', value: '+312%' },
+      { label: 'New appointments', value: '+312%' },
       { label: 'Cost per lead', value: '-47%' },
       { label: 'Months to ROI', value: '2.1' },
     ],

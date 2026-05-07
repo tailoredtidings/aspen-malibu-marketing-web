@@ -157,7 +157,7 @@ function Hero() {
 }
 
 const LOGO_ITEMS = [
-  {n:'Legacy Family Dental',b:'LFD'},{n:'Coastal Wealth Group',b:'CWG'},
+  {n:'Meridian Health Partners',b:'MHP'},{n:'Coastal Wealth Group',b:'CWG'},
   {n:'Summit Aesthetics',b:'SA'},{n:'Northstar Realty',b:'NR'},
   {n:'Heliotrope Studio',b:'HS'},{n:'Ridgeline Roofing',b:'RR'},
   {n:'Tidewater Law',b:'TL'},{n:'Marigold Med Spa',b:'MMS'},

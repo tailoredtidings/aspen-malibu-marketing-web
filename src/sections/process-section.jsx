@@ -70,7 +70,7 @@ function Metrics() {
               </p>
               <div className="case-attrib">
                 <div className="case-avatar"></div>
-                <div><h5>Dr. Rishi Patel, DMD</h5><span>FOUNDER · LEGACY FAMILY DENTAL</span></div>
+                <div><h5>Dr. James Chen, MD</h5><span>FOUNDER · MERIDIAN HEALTH PARTNERS</span></div>
               </div>
             </div>
             <div className="case-mock">
