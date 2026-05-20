@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your App — Aspen Malibu Design System</title>
+
+  <!-- Preconnect to Google Fonts for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+
+  <!-- Required fonts: Instrument Serif, Geist, Geist Mono -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Load design system styles -->
+  <link rel="stylesheet" href="./design-system/design-tokens.css" />
+  <link rel="stylesheet" href="./design-system/base.css" />
+  <link rel="stylesheet" href="./design-system/components.css" />
+
+  <!-- Or if using Tailwind, uncomment: -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <!-- <script src="./tailwind.config.js"></script> -->
+</head>
+<body>
+  <!-- Grain texture overlay (optional, for premium feel) -->
+  <div class="grain"></div>
+
+  <!-- Your app root -->
+  <div id="root"></div>
+
+  <!-- Example: React/Vite entry point -->
+  <!-- <script type="module" src="/src/main.jsx"></script> -->
+</body>
+</html>
