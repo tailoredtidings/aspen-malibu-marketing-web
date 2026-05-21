@@ -153,7 +153,7 @@ const TIERS_DATA = [
     tagline: 'A site built to convert visitors into revenue — not just look pretty. Managed, maintained, and optimized by us.',
     best: 'For operators who need a fast, beautiful site that actually books appointments and sells.',
     features: [
-      'Custom Framer site, built to convert',
+      'Custom website, built to convert',
       'Managed hosting · SSL · 99.9% uptime',
       'Daily backups · security monitoring',
       'Up to 3h/month of content tweaks',
@@ -188,7 +188,7 @@ const TIERS_DATA = [
     tagline: 'A fully-managed profit engine. We handle strategy, execution, and optimization — you handle the customers we bring you.',
     best: 'For operators who want a senior team running the entire revenue system. You stay in your zone of genius.',
     features: [
-      'Custom Framer website included',
+      'Custom website included',
       'Senior team: strategy & daily execution',
       'Fully managed SEO, content & lead gen',
       'Managed social media & Google Business',

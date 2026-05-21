@@ -77,7 +77,9 @@ function Estimate() {
       if (addons[ao.id]) { aoSetup += ao.setup; aoMonthly += ao.monthly; }
     });
 
-    return { setup: setup + aoSetup, monthly: monthly + aoMonthly };
+    const isEnterpriseSite = (product === 'site' && siteComplexity === 4) || (withSite && siteComplexity === 4);
+    const isEnterpriseBespoke = product === 'bespoke' && revTier === 3;
+    return { setup: setup + aoSetup, monthly: monthly + aoMonthly, isEnterpriseSite, isEnterpriseBespoke };
   }, [product, siteComplexity, revTier, withSite, addons, visibleAddons]);
 
   const tog = useCallback(id => setAddons(p => ({ ...p, [id]: !p[id] })), []);
@@ -109,16 +111,71 @@ function Estimate() {
               </div>
             </div>
 
-            {/* B — Website complexity (site or saas+site) */}
+            {/* B — Saas website toggle */}
+            {product === 'saas' && (
+              <div className="est-group">
+                <div className="est-group-head"><span className="est-group-num">B</span><span className="est-group-lbl">Add a managed website?</span></div>
+                <button className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
+                  <span className="est-toggle-check">
+                    <IconCheck />
+                  </span>
+                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity above.</span>
+                </button>
+              </div>
+            )}
+
+            {/* C — Website complexity (site or saas+site) */}
             {(product === 'site' || (product === 'saas' && withSite)) && (
               <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num">B</span><span className="est-group-lbl">Website scope</span></div>
+                <div className="est-group-head"><span className="est-group-num">{product === 'site' ? 'B' : 'C'}</span><span className="est-group-lbl">Website scope</span></div>
                 <div className="est-segs s3" style={{gridTemplateColumns:'repeat(5,1fr)'}}>
                   {SITE_TIERS.map((s, i) => (
                     <button key={i} className={`est-seg ${siteComplexity === i ? 'on' : ''}`} onClick={() => setSiteComplexity(i)}>
                       <span className="est-seg-lbl">{s.label}</span>
                       <span className="est-seg-sub">{s.sub}</span>
-                      <span className="est-seg-price">{fmt(s.setup)}</span>
+                      <span className="est-seg-price">{fmt(s.setup)}{s.label === 'Enterprise' ? '+' : ''}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Revenue tier (saas or bespoke) */}
+            {(product === 'saas' || product === 'bespoke') && (
+              <div className="est-group">
+                <div className="est-group-head"><span className="est-group-num">{product === 'bespoke' ? 'B' : (product === 'saas' && withSite ? 'D' : 'C')}</span><span className="est-group-lbl">Business revenue tier</span></div>
+                <div className="est-segs s4">
+                  {(product === 'saas' ? SAAS_TIERS : BESPOKE_TIERS).map((s, i) => (
+                    <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
+                      <span className="est-seg-lbl">{s.label}</span>
+                      <span className="est-seg-sub">{s.sub}</span>
+                      <span className="est-seg-price">{fmt(s.monthly)}/mo</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Add-ons */}
+            {visibleAddons.length > 0 && (
+              <div className="est-group">
+                <div className="est-group-head"><span className="est-group-num">
+                  {product === 'site' ? 'C' : (product === 'bespoke' ? 'C' : (product === 'saas' && withSite ? 'E' : 'D'))}
+                </span><span className="est-group-lbl">Add-ons</span></div>
+                <div className="est-addons">
+                  {visibleAddons.map(ao => (
+                    <button key={ao.id} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
+                      <span className="est-ao-chk">
+                        <IconCheck />
+                      </span>
+                      <span className="est-ao-txt">
+                        <span className="est-ao-name">{ao.label}</span>
+                        <span className="est-ao-meta">
+                          {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
+                          {ao.setup > 0 && ao.monthly > 0 && ' · '}
+                          {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
+                        </span>
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -133,7 +190,7 @@ function Estimate() {
                   <span className="est-toggle-check">
                     <IconCheck />
                   </span>
-                  <span className="est-toggle-txt"><strong>Include a Framer website build + managed hosting</strong> — priced by complexity above.</span>
+                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity above.</span>
                 </button>
               </div>
             )}
@@ -202,7 +259,7 @@ function Estimate() {
                     <span className="est-sum-meta-lbl">One-time setup</span>
                     <span className="est-sum-meta-range">50% due upfront</span>
                   </div>
-                  <div className="est-sum-fig">{fmt(totals.setup)}</div>
+                  <div className="est-sum-fig">{fmt(totals.setup)}{totals.isEnterpriseSite || totals.isEnterpriseBespoke ? '+' : ''}</div>
                 </div>
               )}
               <div className="est-sum-row">

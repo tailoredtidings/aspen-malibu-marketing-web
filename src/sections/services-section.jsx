@@ -32,6 +32,13 @@ const SERVICES = [
     features: ['Voice AI that books while you sleep','Chatbots that qualify before you call back','Content AI that writes on-brand at scale','Reviews AI that builds 5-star reputation','Workflows that eliminate manual follow-up'],
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="currentColor" strokeWidth="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
   },
+  {
+    num: '05',
+    title: <>LLM / AI Search <em>Discovery</em></>,
+    desc: 'SEO is no longer just Google. Buyers now ask ChatGPT, Perplexity, and Gemini who to trust. We engineer your brand into AI-generated answers before your competitors know it exists.',
+    features: ['Entity optimization for AI citations','Structured data for LLM crawlability','Authority signals AI engines trust','Answer-engine content architecture','Brand mention monitoring across AI platforms'],
+    icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
+  },
 ];
 
 /* ===== SERVICES ===== */
@@ -41,12 +48,13 @@ function Services() {
       <div className="container">
         <div className="sec-head center reveal" ref={useReveal()}>
           <span className="sec-tag">03.5 — Services</span>
-          <h2 className="sec-title">Four ways we <em>make you money.</em></h2>
+          <h2 className="sec-title">Five ways we <em>make you money.</em></h2>
           <p className="sec-sub">Every service is measured by one metric: revenue generated. Not impressions. Not likes. Real customers, real bookings, real profit.</p>
         </div>
         <div className="services-grid reveal-stagger" ref={useReveal()}>
           {SERVICES.map((s, i) => (
             <div key={i} className="service-card">
+              <div className="service-card-trace"></div>
               <div className="service-card-top">
                 <span className="service-num">{s.num}</span>
                 <div className="service-icon">{s.icon}</div>

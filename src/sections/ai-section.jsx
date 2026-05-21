@@ -3,6 +3,83 @@ import { useReveal } from '../hooks/useReveal'
 import { IconArrow, IconArrowSmall, IconClose, IconCheck, IconBack, IconPlus, IconTick } from '../components/icons'
 import { LeadCapture } from '../components/lead-capture'
 
+function useCountUp(target, duration = 1200, suffix = '') {
+  const [val, setVal] = useState('0')
+  const [started, setStarted] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true) },
+      { threshold: 0.4 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [started])
+
+  useEffect(() => {
+    if (!started) return
+    const num = parseInt(target.replace(/\D/g, ''), 10)
+    if (isNaN(num)) { setVal(target); return }
+    const start = performance.now()
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setVal(String(Math.round(num * eased)))
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [started, target, duration])
+
+  return { ref, display: started ? val + suffix : '0' + suffix }
+}
+
+function AnimatedDashboard() {
+  const [inView, setInView] = useState(false)
+  const wrapRef = useRef(null)
+  const leads = useCountUp('142', 2200)
+  const revenue = useCountUp('18', 2200, 'K')
+
+  useEffect(() => {
+    const el = wrapRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true) },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={wrapRef} className={`b-dash ${inView ? 'in' : ''}`}>
+      <div className="b-dash-row">
+        <div className="b-dash-metric">
+          <div className="b-dash-lbl">Leads</div>
+          <div className="b-dash-val" ref={leads.ref}>{leads.display}</div>
+          <div className="b-dash-spark up">
+            <svg viewBox="0 0 40 16" width="40" height="16"><polyline fill="none" stroke="currentColor" strokeWidth="2" points="0,12 8,10 16,6 24,8 32,2 40,0"/></svg>
+          </div>
+        </div>
+        <div className="b-dash-metric">
+          <div className="b-dash-lbl">Revenue</div>
+          <div className="b-dash-val" ref={revenue.ref}>${revenue.display}</div>
+          <div className="b-dash-spark up">
+            <svg viewBox="0 0 40 16" width="40" height="16"><polyline fill="none" stroke="currentColor" strokeWidth="2" points="0,14 10,10 20,12 30,4 40,2"/></svg>
+          </div>
+        </div>
+      </div>
+      <div className="b-dash-bar">
+        {['40%','65%','45%','80%','55%','90%','70%'].map((h,i) => (
+          <div key={i} className={`b-dash-bar-seg s${i}`} style={{'--h':h}}></div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const AI_AGENTS = [
   { tag:'24/7', name:<>Conversation <em>AI</em></>, desc:'Smart chatbots that qualify leads, answer questions, and book appointments across SMS, email, web chat, and social — in your voice.', icon:<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 11.5c0 4.5-4 8-9 8-1.6 0-3-.3-4.4-.9L3 20l1.4-4.6C3.5 14 3 12.8 3 11.5 3 7 7 3.5 12 3.5s9 3.5 9 8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg> },
   { tag:'LIVE', name:<>Voice <em>AI</em></>, desc:'Phone agents that answer every call naturally, book appointments, take messages, and handle routine inquiries — zero hold times.', icon:<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a2 2 0 01-2 2A14 14 0 013 6a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg> },
@@ -12,6 +89,25 @@ const AI_AGENTS = [
 
 /* ===== AI ENGINE ===== */
 function AIEngine() {
+  const handleMouseMove = useCallback((e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const cx = rect.left + rect.width / 2
+    const cy = rect.top + rect.height / 2
+    const dx = (e.clientX - cx) / (rect.width / 2)
+    const dy = (e.clientY - cy) / (rect.height / 2)
+    e.currentTarget.style.setProperty('--rx', `${dy * -8}deg`)
+    e.currentTarget.style.setProperty('--ry', `${dx * 8}deg`)
+    e.currentTarget.style.setProperty('--tx', `${dx * 6}px`)
+    e.currentTarget.style.setProperty('--ty', `${dy * 6}px`)
+  }, [])
+
+  const handleMouseLeave = useCallback((e) => {
+    e.currentTarget.style.setProperty('--rx', '0deg')
+    e.currentTarget.style.setProperty('--ry', '0deg')
+    e.currentTarget.style.setProperty('--tx', '0px')
+    e.currentTarget.style.setProperty('--ty', '0px')
+  }, [])
+
   return (
     <section className="ai-section" id="ai">
       <div className="container">
@@ -20,26 +116,34 @@ function AIEngine() {
           <h2 className="sec-title">An agent stack that works<br/><em>while you sleep.</em></h2>
           <p className="sec-sub">Four senior AI agents in permanent deployment — your front line, your back office, and your content team rolled into one system.</p>
         </div>
-        <div className="ai-orb-area reveal" ref={useReveal()}>
-          <div className="ai-ring"></div>
-          <div className="ai-ring r2"></div>
-          <div className="ai-core">
-            <div className="ai-core-inner">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-              <span className="ai-core-label">ENGINE</span>
-            </div>
-          </div>
-          {[{cls:'n1',lbl:'CONV'},{cls:'n2',lbl:'VOICE'},{cls:'n3',lbl:'CONTENT'},{cls:'n4',lbl:'REVIEWS'}].map((n,i) => (
-            <div key={i} className={`ai-node-outer ${n.cls}`}>
-              <div className="ai-node">
-                <div className="ai-node-icon">{AI_AGENTS[i].icon}</div>
-                <span className="ai-node-label">{n.lbl}</span>
+        <div className="ai-orb-tilt" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+          <div className="ai-orb-area reveal" ref={useReveal()}>
+            <div className="ai-ring"></div>
+            <div className="ai-ring r2"></div>
+            <svg className="ai-energy-ring" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(184,145,42,0.35)" strokeWidth="1.2" strokeDasharray="3 5" />
+            </svg>
+            <div className="ai-core">
+              <div className="ai-core-inner">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+                <span className="ai-core-label">ENGINE</span>
               </div>
             </div>
-          ))}
+            {[{cls:'n1',lbl:'CONV',delay:'-18s'},{cls:'n2',lbl:'VOICE',delay:'0s'},{cls:'n3',lbl:'CONTENT',delay:'-6s'},{cls:'n4',lbl:'REVIEWS',delay:'-12s'}].map((n,i) => (
+              <React.Fragment key={i}>
+                <div className={`ai-beam ${n.cls}`} style={{animationDelay:n.delay}}></div>
+                <div className={`ai-node-outer ${n.cls}`} style={{animationDelay:n.delay}}>
+                  <div className="ai-node">
+                    <div className="ai-node-icon">{AI_AGENTS[i].icon}</div>
+                    <span className="ai-node-label">{n.lbl}</span>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
         <div className="ai-cards-grid reveal-stagger" ref={useReveal()}>
           {AI_AGENTS.map((a,i) => (
@@ -53,7 +157,7 @@ function AIEngine() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 /* ===== CAPABILITIES ===== */
@@ -105,7 +209,20 @@ function Capabilities() {
               <h3>5-stars on <em>autopilot.</em></h3>
             </div>
             <div className="bc-viz">
-              <div className="b-stars">★ ★ ★ ★ ★</div>
+              <div className="b-rep">
+                <div className="b-rep-stars">
+                  {[1,2,3,4,5].map((s,i) => (
+                    <span key={i} className={`b-rep-star s${i}`}>★</span>
+                  ))}
+                </div>
+                <div className="b-rep-card">
+                  <div className="b-rep-avatar"></div>
+                  <div className="b-rep-body">
+                    <div className="b-rep-name">Sarah M.</div>
+                    <div className="b-rep-text">Best experience I've had. They...</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -188,6 +305,17 @@ function Capabilities() {
             </div>
           </div>
 
+          {/* Dashboard */}
+          <div className="bc bc-3 bc-teal">
+            <div>
+              <div className="bc-eye">● Dashboard</div>
+              <h3>Everything. <em>At a glance.</em></h3>
+            </div>
+            <div className="bc-viz" style={{justifyContent:'center'}}>
+              <AnimatedDashboard />
+            </div>
+          </div>
+
           {/* Workflows */}
           <div className="bc bc-6">
             <div>
@@ -203,7 +331,7 @@ function Capabilities() {
                 <line x1="20" y1="30" x2="380" y2="30" stroke="url(#flowG)" strokeWidth="1.5" strokeDasharray="4 5"/>
                 {[20,105,190,275,360].map((x,i) => (
                   <g key={i}>
-                    <circle cx={x} cy="30" r="18" fill="var(--paper)" stroke="url(#flowG)" strokeWidth="1.5"/>
+                    <circle cx={x} cy="30" r="18" fill="var(--paper)" stroke="url(#flowG)" strokeWidth="1.5" strokeDasharray="20 8" className={`flow-ring fr${i}`}/>
                     <text x={x} y="35" textAnchor="middle" fill="var(--gold)" fontSize="11" fontFamily="Geist Mono">{['T','AI','✉','☎','$'][i]}</text>
                   </g>
                 ))}
