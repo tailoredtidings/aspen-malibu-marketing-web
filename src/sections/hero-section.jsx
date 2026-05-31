@@ -91,8 +91,11 @@ function HeroCanvas() {
 
 /* ===== HERO ===== */
 function Hero() {
+  const [showLead, setShowLead] = useState(false)
+
   return (
     <section className="hero" id="top">
+      {showLead && <LeadCapture onClose={() => setShowLead(false)} source="hero" />}
       <HeroCanvas />
 
       <div className="container hero-content">
@@ -114,12 +117,12 @@ function Hero() {
         </p>
 
         <div className="hero-actions">
-          <a href="#cta" className="btn-primary">
+          <button type="button" className="btn-primary" onClick={() => setShowLead(true)}>
             Get my free audit
             <span className="arrow">
               <IconArrow />
             </span>
-          </a>
+          </button>
           <a href="#ai" className="btn-outline">See how it works</a>
         </div>
 

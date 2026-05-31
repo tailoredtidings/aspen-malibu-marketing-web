@@ -6,6 +6,38 @@ function trackEvent(name, params = {}) {
   if (window.gtag_GHL) window.gtag_GHL('event', name, params)
 }
 
+const PARTNERS_EMAIL = 'partners@aspenmalibumarketing.com'
+
+async function sendLeadEmail(payload) {
+  try {
+    const res = await fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+    if (res.ok) return
+  } catch (err) {
+    console.error('Lead API failed', err)
+  }
+
+  await fetch(`https://formsubmit.co/ajax/${PARTNERS_EMAIL}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      name: `${payload.firstName} ${payload.lastName}`.trim(),
+      email: payload.email,
+      phone: payload.phone,
+      business: payload.business,
+      website: payload.website,
+      challenge: payload.challenge,
+      source: payload.source,
+      _subject: `Free Audit Request — ${payload.business}`,
+      _template: 'table',
+      _captcha: 'false',
+    }),
+  })
+}
+
 export function LeadCapture({ onClose, source = 'general' }) {
   const [step, setStep] = useState(1)
   const [form, setForm] = useState({
@@ -55,22 +87,31 @@ export function LeadCapture({ onClose, source = 'general' }) {
 
   const canSubmit = form.firstName && form.lastName && form.email && form.phone && form.business
 
-  const submit = () => {
+  const submit = async () => {
     if (!canSubmit) return
     trackEvent('lead_capture_submit', { source, business: form.business })
-    // GHL form submit
-    if (window.submitGHLForm) {
-      window.submitGHLForm({
-        firstName: form.firstName,
-        lastName: form.lastName,
-        email: form.email,
-        phone: form.phone,
-        business: form.business,
-        website: form.website,
-        challenge: form.challenge,
-        source,
-      })
+
+    const payload = {
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      phone: form.phone,
+      business: form.business,
+      website: form.website,
+      challenge: form.challenge,
+      source,
     }
+
+    if (window.submitGHLForm) {
+      window.submitGHLForm(payload)
+    }
+
+    try {
+      await sendLeadEmail(payload)
+    } catch (err) {
+      console.error('Lead email failed', err)
+    }
+
     setStep(2)
   }
 
