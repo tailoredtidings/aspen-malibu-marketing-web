@@ -160,35 +160,6 @@ function Estimate() {
               </div>
             )}
 
-            {/* Saas website toggle */}
-            {product === 'saas' && (
-              <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num" style={{background:'var(--teal-bg)',color:'var(--teal)'}}>+</span><span className="est-group-lbl">Add a managed website?</span></div>
-                <button className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
-                  <span className="est-toggle-check">
-                    <IconCheck />
-                  </span>
-                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity below.</span>
-                </button>
-              </div>
-            )}
-
-            {/* C — Revenue tier (saas or bespoke) */}
-            {(product === 'saas' || product === 'bespoke') && (
-              <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num">C</span><span className="est-group-lbl">Business revenue tier</span></div>
-                <div className="est-segs s4">
-                  {(product === 'saas' ? SAAS_TIERS : BESPOKE_TIERS).map((s, i) => (
-                    <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
-                      <span className="est-seg-lbl">{s.label}</span>
-                      <span className="est-seg-sub">{s.sub}</span>
-                      <span className="est-seg-price">{fmt(s.monthly)}/mo</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Add-ons */}
             {visibleAddons.length > 0 && (
               <div className="est-group">
