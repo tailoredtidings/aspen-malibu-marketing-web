@@ -32,7 +32,7 @@ const ADDONS = [
   { id: 'audit',    label: 'Forensic Ad Audit',            setup: 3995,  monthly: 0,    products: ['saas','bespoke'],        note: 'AI-powered account analysis — find every dollar of waste' },
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        note: 'Cost + 100% markup — billed on usage' },
-  { id: 'rush',     label: 'Rush 7-day delivery',          setup: 2495,  monthly: 0,    products: ['site'],                  note: '+25% of one-time fee minimum' },
+  { id: 'rush',     label: 'Rush 7-day delivery',          setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site'], note: '+30% of one-time setup fee' },
 ];
 
 const PRODUCTS = [
@@ -72,14 +72,18 @@ function Estimate() {
       setup = s.setup; monthly = s.monthly;
     }
 
-    let aoSetup = 0, aoMonthly = 0;
+    let aoSetup = 0, aoMonthly = 0, pctSetup = 0;
     visibleAddons.forEach(ao => {
-      if (addons[ao.id]) { aoSetup += ao.setup; aoMonthly += ao.monthly; }
+      if (addons[ao.id]) {
+        if (ao.pctSetup) pctSetup += ao.pctSetup;
+        else { aoSetup += ao.setup; aoMonthly += ao.monthly; }
+      }
     });
 
+    const rushFee = Math.round((setup + aoSetup) * pctSetup);
     const isEnterpriseSite = (product === 'site' && siteComplexity === 4) || (withSite && siteComplexity === 4);
     const isEnterpriseBespoke = product === 'bespoke' && revTier === 3;
-    return { setup: setup + aoSetup, monthly: monthly + aoMonthly, isEnterpriseSite, isEnterpriseBespoke };
+    return { setup: setup + aoSetup + rushFee, monthly: monthly + aoMonthly, isEnterpriseSite, isEnterpriseBespoke };
   }, [product, siteComplexity, revTier, withSite, addons, visibleAddons]);
 
   const tog = useCallback(id => setAddons(p => ({ ...p, [id]: !p[id] })), []);
@@ -91,7 +95,7 @@ function Estimate() {
       <div className="container">
         <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">05 — Investment Estimator</span>
-          <h2 className="sec-title">Build your <em>quote.</em></h2>
+          <h2 className="sec-title">Build your <em>estimate.</em></h2>
           <p className="sec-sub">Exact pricing from our official rate card — calibrated to your scope. Final confirmation on a free 30-min discovery call.</p>
         </div>
 
@@ -171,6 +175,7 @@ function Estimate() {
                       <span className="est-ao-txt">
                         <span className="est-ao-name">{ao.label}</span>
                         <span className="est-ao-meta">
+                          {ao.pctSetup ? `+${Math.round(ao.pctSetup * 100)}% setup` : null}
                           {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
                           {ao.setup > 0 && ao.monthly > 0 && ' · '}
                           {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
@@ -224,10 +229,11 @@ function Estimate() {
                       <span className="est-ao-txt">
                         <span className="est-ao-name">{ao.label}</span>
                         <span className="est-ao-meta">
+                          {ao.pctSetup ? `+${Math.round(ao.pctSetup * 100)}% setup` : null}
                           {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
                           {ao.setup > 0 && ao.monthly > 0 && ' · '}
                           {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
-                          {ao.setup === 0 && ao.monthly === 0 && 'Usage-based'}
+                          {!ao.pctSetup && ao.setup === 0 && ao.monthly === 0 && 'Usage-based'}
                         </span>
                         <span className="est-ao-note">{ao.note}</span>
                       </span>
