@@ -203,13 +203,14 @@ function Estimate() {
                       </span>
                       <span className="est-ao-txt">
                         <span className="est-ao-name">{ao.label}</span>
-                        <span className="est-ao-meta">
-                          {ao.pctSetup ? `+${Math.round(ao.pctSetup * 100)}% setup` : null}
-                          {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
-                          {ao.setup > 0 && ao.monthly > 0 && ' · '}
-                          {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
-                          {!ao.pctSetup && ao.setup === 0 && ao.monthly === 0 && 'Usage-based'}
-                        </span>
+                        {!ao.pctSetup && (
+                          <span className="est-ao-meta">
+                            {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
+                            {ao.setup > 0 && ao.monthly > 0 && ' · '}
+                            {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
+                            {ao.setup === 0 && ao.monthly === 0 && 'Usage-based'}
+                          </span>
+                        )}
                         <span className="est-ao-note">{ao.note}</span>
                       </span>
                     </button>
