@@ -123,7 +123,7 @@ function Estimate() {
                   <span className="est-toggle-check">
                     <IconCheck />
                   </span>
-                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity above.</span>
+                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity below.</span>
                 </button>
               </div>
             )}
@@ -168,7 +168,7 @@ function Estimate() {
                   <span className="est-toggle-check">
                     <IconCheck />
                   </span>
-                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity above.</span>
+                  <span className="est-toggle-txt"><strong>Include a website build + managed hosting</strong> — priced by complexity below.</span>
                 </button>
               </div>
             )}
