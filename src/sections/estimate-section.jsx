@@ -160,33 +160,6 @@ function Estimate() {
               </div>
             )}
 
-            {/* Add-ons */}
-            {visibleAddons.length > 0 && (
-              <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num">
-                  {product === 'site' ? 'C' : (product === 'bespoke' ? 'C' : (product === 'saas' && withSite ? 'E' : 'D'))}
-                </span><span className="est-group-lbl">Add-ons</span></div>
-                <div className="est-addons">
-                  {visibleAddons.map(ao => (
-                    <button key={ao.id} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
-                      <span className="est-ao-chk">
-                        <IconCheck />
-                      </span>
-                      <span className="est-ao-txt">
-                        <span className="est-ao-name">{ao.label}</span>
-                        <span className="est-ao-meta">
-                          {ao.pctSetup ? `+${Math.round(ao.pctSetup * 100)}% setup` : null}
-                          {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
-                          {ao.setup > 0 && ao.monthly > 0 && ' · '}
-                          {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
-                        </span>
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
             {/* Saas website toggle */}
             {product === 'saas' && (
               <div className="est-group">
@@ -216,10 +189,12 @@ function Estimate() {
               </div>
             )}
 
-            {/* D — Add-ons */}
+            {/* Add-ons */}
             {visibleAddons.length > 0 && (
               <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num">D</span><span className="est-group-lbl">Add-ons</span></div>
+                <div className="est-group-head"><span className="est-group-num">
+                  {product === 'site' ? 'C' : (product === 'bespoke' ? 'C' : (product === 'saas' && withSite ? 'E' : 'D'))}
+                </span><span className="est-group-lbl">Add-ons</span></div>
                 <div className="est-addons">
                   {visibleAddons.map(ao => (
                     <button key={ao.id} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
