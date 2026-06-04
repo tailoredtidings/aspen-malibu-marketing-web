@@ -2,31 +2,71 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { IconArrow } from '../components/icons'
 import { LeadCapture } from '../components/lead-capture'
+
+const NAV_LINKS = [
+  { href: '#ai', label: 'AI Engine' },
+  { href: '#services', label: 'Services' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#estimate', label: 'Estimate' },
+  { href: '#reviews', label: 'Reviews' },
+  { href: '#results', label: 'Results' },
+]
+
 /* ===== NAV ===== */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [showLead, setShowLead] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', h, { passive: true });
     return () => window.removeEventListener('scroll', h);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    const onResize = () => { if (window.innerWidth > 900) setMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+  const openLead = () => { closeMenu(); setShowLead(true); };
+
   return (
     <>
       {showLead && <LeadCapture onClose={() => setShowLead(false)} source="nav" />}
-      <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
-        <a href="#top" className="nav-logo">
+      <nav className={`nav ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+        <a href="#top" className="nav-logo" onClick={closeMenu}>
           <img src="assets/am-logo.png" alt="Aspen Malibu" />
           <span className="nav-logo-text">Aspen<em>Malibu</em></span>
         </a>
         <div className="nav-links">
-          <a href="#ai" className="nav-link">AI Engine</a>
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#estimate" className="nav-link">Estimate</a>
-          <a href="#reviews" className="nav-link">Reviews</a>
-          <a href="#results" className="nav-link">Results</a>
+          {NAV_LINKS.map(({ href, label }) => (
+            <a key={href} href={href} className="nav-link">{label}</a>
+          ))}
         </div>
+        <button
+          type="button"
+          className={`nav-menu-btn ${menuOpen ? 'open' : ''}`}
+          aria-expanded={menuOpen}
+          aria-controls="nav-mobile-menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMenuOpen((o) => !o)}
+        >
+          <span className="nav-menu-bar" />
+          <span className="nav-menu-bar" />
+        </button>
         <a
           href="https://app.aspenmalibumarketing.com"
           target="_blank"
@@ -34,17 +74,47 @@ function Nav() {
           className="nav-login"
           onClick={() => window.gtag?.('event', 'nav_client_login_click')}
         >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
             <path d="M7 11V7a5 5 0 0110 0v4"/>
           </svg>
           <span className="nav-login-label">Client Login</span>
         </a>
-        <button className="nav-cta" onClick={() => setShowLead(true)}>
+        <button type="button" className="nav-cta" onClick={() => setShowLead(true)}>
           Book a call
           <IconArrow size={13} stroke={1.5} />
         </button>
       </nav>
+
+      <div
+        id="nav-mobile-menu"
+        className={`nav-mobile ${menuOpen ? 'open' : ''}`}
+        aria-hidden={!menuOpen}
+      >
+        <button type="button" className="nav-mobile-backdrop" aria-label="Close menu" onClick={closeMenu} />
+        <div className="nav-mobile-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+          <div className="nav-mobile-links">
+            {NAV_LINKS.map(({ href, label }) => (
+              <a key={href} href={href} className="nav-mobile-link" onClick={closeMenu}>{label}</a>
+            ))}
+          </div>
+          <div className="nav-mobile-actions">
+            <a
+              href="https://app.aspenmalibumarketing.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-mobile-login"
+              onClick={() => { window.gtag?.('event', 'nav_client_login_click'); closeMenu(); }}
+            >
+              Client Login
+            </a>
+            <button type="button" className="nav-mobile-cta" onClick={openLead}>
+              Book a call
+              <IconArrow size={13} stroke={1.5} />
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
