@@ -31,7 +31,8 @@ const ADDONS = [
   { id: 'launch',   label: 'Launch Accelerator',           setup: 4995,  monthly: 0,    products: ['site','saas','bespoke'], note: '30-day launch sprint + creative assets' },
   { id: 'audit',    label: 'Forensic Ad Audit',            setup: 3995,  monthly: 0,    products: ['saas','bespoke'],        note: 'AI-powered account analysis — find every dollar of waste' },
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
-  { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        note: 'Cost + 100% markup — billed on usage' },
+  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['saas','bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
+  { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
   { id: 'rush',     label: 'Rush 7-day delivery',          setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site'], note: '+30% of one-time setup fee' },
 ];
 
@@ -176,10 +177,14 @@ function Estimate() {
                         <span className="est-ao-name">{ao.label}</span>
                         {!ao.pctSetup && (
                           <span className="est-ao-meta">
-                            {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
-                            {ao.setup > 0 && ao.monthly > 0 && ' · '}
-                            {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
-                            {ao.setup === 0 && ao.monthly === 0 && 'Usage-based'}
+                            {ao.meta ? ao.meta : (
+                              <>
+                                {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
+                                {ao.setup > 0 && ao.monthly > 0 && ' · '}
+                                {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
+                                {ao.pctSpend && `+${Math.round(ao.pctSpend * 100)}% of ad spend`}
+                              </>
+                            )}
                           </span>
                         )}
                         <span className="est-ao-note">{ao.note}</span>
@@ -187,11 +192,6 @@ function Estimate() {
                     </button>
                   ))}
                 </div>
-                {(product === 'saas' || product === 'bespoke') && (
-                  <p style={{fontSize:12,color:'var(--ink-3)',marginTop:8,fontFamily:'Geist Mono, monospace',letterSpacing:'0.03em'}}>
-                    Ad management: 15% of spend — billed monthly against actual spend. Not shown above.
-                  </p>
-                )}
               </div>
             )}
           </div>
