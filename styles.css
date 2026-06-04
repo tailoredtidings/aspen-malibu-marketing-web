@@ -27,7 +27,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: var(--paper); }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; background: var(--paper); }
 body {
   font-family: 'Geist', -apple-system, sans-serif;
   background: var(--paper);
@@ -80,13 +80,21 @@ p { text-wrap: pretty; }
 /* Sections */
 section { position: relative; padding: 120px 0; }
 @media (max-width: 768px) { section { padding: 80px 0; } }
+@media (max-width: 640px) {
+  .sec-head,
+  .sec-head.center { margin-bottom: 48px; }
+}
 
 /* ============================================
    GRAIN TEXTURE
    ============================================ */
 .grain {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
   z-index: 500;
   pointer-events: none;
   opacity: 0.035;
@@ -259,6 +267,37 @@ section { position: relative; padding: 120px 0; }
 }
 .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
 @media (max-width: 900px) { .nav-links { display: none; } }
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 950;
+}
+@media (max-width: 640px) {
+  .floating-cta {
+    right: 16px;
+    bottom: 16px;
+    max-width: calc(100vw - 32px);
+  }
+  .nav {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: calc(100vw - 24px);
+    transform: none;
+    padding: 6px 6px 6px 12px;
+    gap: 6px;
+  }
+  .nav-logo {
+    padding-right: 0;
+    border-right: none;
+    margin-right: 0;
+  }
+  .nav-logo-text { display: none; }
+  .nav-login { padding: 9px 10px; }
+  .nav-login-label { display: none; }
+  .nav-cta { padding: 10px 14px; font-size: 13px; }
+}
 
 /* ============================================
    BUTTONS
@@ -429,6 +468,15 @@ section { position: relative; padding: 120px 0; }
   box-shadow: var(--shadow-sm);
   animation: fadeUp .9s cubic-bezier(.22,1,.36,1) .1s both;
   width: fit-content;
+  max-width: 100%;
+}
+@media (max-width: 640px) {
+  .hero-eyebrow {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 12px;
+  }
 }
 .hero-eyebrow-pill {
   display: inline-flex;
@@ -525,6 +573,32 @@ section { position: relative; padding: 120px 0; }
   transform: translateX(-50%) rotate(-1.5deg);
   --r: -1.5deg;
   animation: float 8s ease-in-out infinite -5s;
+}
+@media (max-width: 640px) {
+  .hero-content { padding-top: 110px; }
+  .hero-title { font-size: clamp(44px, 12vw, 60px); margin-bottom: 24px; }
+  .hero-desc { font-size: 16.5px; margin-bottom: 32px; }
+  .hero-cards {
+    height: auto;
+    min-height: 0;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .hcard.hc1,
+  .hcard.hc2 { display: none; }
+  .hcard.hc3 {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    transform: none;
+    width: min(280px, 100%);
+    margin: 0 auto;
+    animation: none;
+  }
 }
 .hcard-head {
   display: flex;
@@ -695,6 +769,7 @@ section { position: relative; padding: 120px 0; }
 .ai-section {
   background: var(--paper);
   padding: 140px 0;
+  overflow-x: clip;
 }
 .ai-orb-tilt {
   max-width: 480px;
@@ -1403,7 +1478,10 @@ section { position: relative; padding: 120px 0; }
   gap: 28px;
   align-items: start;
 }
-@media (max-width: 1100px) { .est-shell { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) {
+  .est-shell { grid-template-columns: 1fr; }
+}
+.est-shell > * { min-width: 0; max-width: 100%; }
 
 .est-panel {
   background: var(--paper);
@@ -1413,6 +1491,13 @@ section { position: relative; padding: 120px 0; }
   display: flex;
   flex-direction: column;
   gap: 32px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .est-panel { padding: 24px 20px; gap: 24px; }
+  .est-sum-card { padding: 28px 22px 24px; }
 }
 .est-group { display: flex; flex-direction: column; gap: 12px; }
 .est-group-head { display: flex; align-items: center; gap: 10px; }
@@ -1441,12 +1526,13 @@ section { position: relative; padding: 120px 0; }
 }
 .est-segs.s3 { grid-template-columns: repeat(3, 1fr); }
 .est-segs.s4 { grid-template-columns: repeat(4, 1fr); }
+.est-segs.s5 { grid-template-columns: repeat(5, 1fr); }
 .est-segs.s2 { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 800px) {
-  .est-segs.s3, .est-segs.s4 { grid-template-columns: repeat(2, 1fr); }
+  .est-segs.s3, .est-segs.s4, .est-segs.s5 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 500px) {
-  .est-segs.s3, .est-segs.s4, .est-segs.s2 { grid-template-columns: 1fr; }
+  .est-segs.s3, .est-segs.s4, .est-segs.s5, .est-segs.s2 { grid-template-columns: 1fr; }
 }
 .est-seg {
   display: flex;
@@ -1557,6 +1643,9 @@ section { position: relative; padding: 120px 0; }
   position: sticky;
   top: 100px;
 }
+@media (max-width: 1100px) {
+  .est-summary { position: static; top: auto; }
+}
 .est-sum-card {
   background: var(--ink);
   color: var(--paper);
@@ -1592,9 +1681,18 @@ section { position: relative; padding: 120px 0; }
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: 12px;
   padding: 16px 0;
   border-bottom: 1px dashed rgba(250,250,248,0.1);
+}
+@media (max-width: 480px) {
+  .est-sum-fig {
+    font-size: 34px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .est-sum-eng-name { font-size: 28px; }
 }
 .est-sum-row:last-of-type { border-bottom: none; padding-bottom: 8px; }
 .est-sum-meta { display: flex; flex-direction: column; gap: 4px; }
@@ -1987,6 +2085,12 @@ section { position: relative; padding: 120px 0; }
   margin-bottom: 60px;
 }
 @media (max-width: 800px) { .metrics-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) {
+  .metrics-row { grid-template-columns: 1fr; }
+  .m-num { font-size: 56px; }
+  .m-num .u { font-size: 28px; }
+  .m-cell { padding: 28px 22px; }
+}
 .m-cell {
   padding: 36px 28px;
   background: var(--ink);
@@ -2230,6 +2334,16 @@ section { position: relative; padding: 120px 0; }
   color: rgba(250,250,248,0.07);
 }
 .footer-wordmark em { font-style: italic; color: rgba(184,145,42,0.2); }
+@media (max-width: 640px) {
+  .footer-wordmark {
+    font-size: clamp(48px, 18vw, 72px);
+    max-width: 100%;
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .footer-grid { grid-template-columns: 1fr; }
+}
 .footer-bottom {
   display: flex;
   justify-content: space-between;

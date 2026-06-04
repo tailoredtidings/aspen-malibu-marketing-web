@@ -132,7 +132,7 @@ function Estimate() {
             {(product === 'site' || (product === 'saas' && withSite)) && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">{product === 'site' ? 'B' : 'C'}</span><span className="est-group-lbl">Website scope</span></div>
-                <div className="est-segs s3" style={{gridTemplateColumns:'repeat(5,1fr)'}}>
+                <div className="est-segs s5">
                   {SITE_TIERS.map((s, i) => (
                     <button key={i} className={`est-seg ${siteComplexity === i ? 'on' : ''}`} onClick={() => setSiteComplexity(i)}>
                       <span className="est-seg-lbl">{s.label}</span>

@@ -24,8 +24,8 @@ function FloatingCta() {
     <>
       {showLead && <LeadCapture onClose={() => setShowLead(false)} source="floating_cta" />}
       <button
+        className="floating-cta"
         style={{
-          position: 'fixed', bottom: 24, right: 24, zIndex: 950,
           padding: '14px 24px', background: 'var(--ink)', color: 'var(--paper)',
           borderRadius: 100, fontSize: 14, fontWeight: 500, letterSpacing: '-0.005em',
           display: 'flex', alignItems: 'center', gap: 8,
