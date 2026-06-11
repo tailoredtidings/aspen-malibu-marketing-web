@@ -71,6 +71,10 @@ function Estimate() {
     } else {
       const s = BESPOKE_TIERS[revTier];
       setup = s.setup; monthly = s.monthly;
+      if (withSite) {
+        const st = SITE_TIERS[siteComplexity];
+        setup += st.setup; monthly += st.monthly;
+      }
     }
 
     let aoSetup = 0, aoMonthly = 0, pctSetup = 0;
@@ -108,7 +112,7 @@ function Estimate() {
               <div className="est-group-head"><span className="est-group-num">A</span><span className="est-group-lbl">What are you estimating?</span></div>
               <div className="est-segs s3">
                 {PRODUCTS.map((p, i) => (
-                  <button key={i} className={`est-seg ${product === p.id ? 'on' : ''}`} onClick={() => { setProduct(p.id); setAddons({}); }}>
+                  <button key={i} className={`est-seg ${product === p.id ? 'on' : ''}`} onClick={() => { setProduct(p.id); setWithSite(false); setAddons({}); }}>
                     <span className="est-seg-lbl">{p.label}</span>
                     <span className="est-seg-sub">{p.sub}</span>
                   </button>
@@ -116,8 +120,8 @@ function Estimate() {
               </div>
             </div>
 
-            {/* B — Saas website toggle */}
-            {product === 'saas' && (
+            {/* B — Optional managed website (Growth Accelerator or Bespoke) */}
+            {(product === 'saas' || product === 'bespoke') && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">B</span><span className="est-group-lbl">Add a managed website?</span></div>
                 <button className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
@@ -129,8 +133,8 @@ function Estimate() {
               </div>
             )}
 
-            {/* C — Website complexity (site or saas+site) */}
-            {(product === 'site' || (product === 'saas' && withSite)) && (
+            {/* C — Website complexity (site or saas/bespoke + site) */}
+            {(product === 'site' || ((product === 'saas' || product === 'bespoke') && withSite)) && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">{product === 'site' ? 'B' : 'C'}</span><span className="est-group-lbl">Website scope</span></div>
                 <div className="est-segs s5">
@@ -148,7 +152,7 @@ function Estimate() {
             {/* Revenue tier (saas or bespoke) */}
             {(product === 'saas' || product === 'bespoke') && (
               <div className="est-group">
-                <div className="est-group-head"><span className="est-group-num">{product === 'bespoke' ? 'B' : (product === 'saas' && withSite ? 'D' : 'C')}</span><span className="est-group-lbl">Business revenue tier</span></div>
+                <div className="est-group-head"><span className="est-group-num">{withSite ? 'D' : 'C'}</span><span className="est-group-lbl">Business revenue tier</span></div>
                 <div className="est-segs s4">
                   {(product === 'saas' ? SAAS_TIERS : BESPOKE_TIERS).map((s, i) => (
                     <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
@@ -165,7 +169,7 @@ function Estimate() {
             {visibleAddons.length > 0 && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">
-                  {product === 'site' ? 'C' : (product === 'bespoke' ? 'C' : (product === 'saas' && withSite ? 'E' : 'D'))}
+                  {product === 'site' ? 'C' : (withSite ? 'E' : 'D')}
                 </span><span className="est-group-lbl">Add-ons</span></div>
                 <div className="est-addons">
                   {visibleAddons.map(ao => (
