@@ -43,6 +43,8 @@ const PRODUCTS = [
 ];
 
 const fmt = n => n >= 1000 ? '$' + n.toLocaleString('en-US') : '$' + n;
+const fmtMonthly = (tier, monthly) =>
+  `${fmt(monthly)}${tier.label === 'Enterprise' ? '+' : ''}/mo`;
 
 /* ===== ESTIMATE ===== */
 function Estimate() {
@@ -88,7 +90,17 @@ function Estimate() {
     const rushFee = Math.round((setup + aoSetup) * pctSetup);
     const isEnterpriseSite = (product === 'site' && siteComplexity === 4) || (withSite && siteComplexity === 4);
     const isEnterpriseBespoke = product === 'bespoke' && revTier === 3;
-    return { setup: setup + aoSetup + rushFee, monthly: monthly + aoMonthly, isEnterpriseSite, isEnterpriseBespoke };
+    const isEnterpriseRevenue =
+      (product === 'saas' || product === 'bespoke') && revTier === 3;
+    const isEnterpriseMonthly = isEnterpriseSite || isEnterpriseRevenue;
+    return {
+      setup: setup + aoSetup + rushFee,
+      monthly: monthly + aoMonthly,
+      isEnterpriseSite,
+      isEnterpriseBespoke,
+      isEnterpriseRevenue,
+      isEnterpriseMonthly,
+    };
   }, [product, siteComplexity, revTier, withSite, addons, visibleAddons]);
 
   const tog = useCallback(id => setAddons(p => ({ ...p, [id]: !p[id] })), []);
@@ -158,7 +170,7 @@ function Estimate() {
                     <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
                       <span className="est-seg-lbl">{s.label}</span>
                       <span className="est-seg-sub">{s.sub}</span>
-                      <span className="est-seg-price">{fmt(s.monthly)}/mo</span>
+                      <span className="est-seg-price">{fmtMonthly(s, s.monthly)}</span>
                     </button>
                   ))}
                 </div>
@@ -224,7 +236,11 @@ function Estimate() {
                   <span className="est-sum-meta-lbl">Monthly retainer</span>
                   <span className="est-sum-meta-range">3-month minimum</span>
                 </div>
-                <div className="est-sum-fig">{fmt(totals.monthly)}<span className="per">/mo</span></div>
+                <div className="est-sum-fig">
+                  {fmt(totals.monthly)}
+                  {totals.isEnterpriseMonthly ? '+' : ''}
+                  <span className="per">/mo</span>
+                </div>
               </div>
 
               <button className="est-sum-cta" onClick={() => setShowLead(true)}>

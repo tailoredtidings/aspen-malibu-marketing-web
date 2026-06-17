@@ -15,6 +15,8 @@ function SignupModal({ onClose }) {
     { label: 'Enterprise', sub: '$15M+ revenue', setup: 14995, monthly: 6997 },
   ];
   const fmt = n => '$' + n.toLocaleString('en-US');
+  const fmtMonthly = (tier, monthly) =>
+    `${fmt(monthly)}${tier.label === 'Enterprise' ? '+' : ''}`;
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -69,7 +71,10 @@ function SignupModal({ onClose }) {
                     <span className="modal-tier-sub">{t.sub}</span>
                   </div>
                   <div className="modal-tier-right">
-                    <span className="modal-tier-mo">{fmt(t.monthly)}<span>/mo</span></span>
+                    <span className="modal-tier-mo">
+                      {fmtMonthly(t, t.monthly)}
+                      <span>/mo</span>
+                    </span>
                     <span className="modal-tier-setup">+ {fmt(t.setup)} setup</span>
                   </div>
                 </button>
@@ -102,7 +107,9 @@ function SignupModal({ onClose }) {
               </div>
               <div className="modal-sum-row">
                 <span>Monthly retainer</span>
-                <strong>{fmt(tiers[rev].monthly)}/mo</strong>
+                <strong>
+                  {fmtMonthly(tiers[rev], tiers[rev].monthly)}/mo
+                </strong>
               </div>
               <div className="modal-sum-row modal-sum-total">
                 <span>First payment (50% deposit)</span>
