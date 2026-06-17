@@ -202,6 +202,14 @@ function Footer() {
             <a href="/#estimate">Run an estimate</a>
           </div>
           <div className="footer-col">
+            <h4>Services</h4>
+            <a href="/services/geo">GEO / AI Discovery</a>
+            <a href="/services/seo">SEO</a>
+            <a href="/services/paid-ads">Paid Ads</a>
+            <a href="/services/ai-automation">AI Automation</a>
+            <a href="/services/conversion-funnels">Funnels</a>
+          </div>
+          <div className="footer-col">
             <h4>The Studio</h4>
             <a href="/blog">Insights &amp; GEO Guides</a>
             <a href="/#ai">AI Engine</a>

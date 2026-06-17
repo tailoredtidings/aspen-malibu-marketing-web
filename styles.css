@@ -2449,11 +2449,11 @@ section { position: relative; padding: 120px 0; }
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
   margin-bottom: 80px;
 }
-@media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+@media (max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
 .footer-brand { display: flex; flex-direction: column; gap: 16px; }
 .footer-logo { display: flex; align-items: center; gap: 12px; }
 .footer-logo img { width: 42px; height: 42px; object-fit: contain; filter: brightness(0) invert(1); }
@@ -3126,4 +3126,69 @@ section { position: relative; padding: 120px 0; }
   .blog-hero { padding: 120px 0 48px; }
   .blog-post { padding: 100px 0 60px; }
   .blog-post-cta-card { padding: 28px; }
+}
+
+/* TOC */
+.blog-toc {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.blog-toc-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 12px;
+}
+.blog-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.blog-toc a {
+  font-size: 15px;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.blog-toc a:hover { color: var(--gold); }
+.blog-toc-h3 { padding-left: 16px; }
+.blog-toc-h3 a { font-size: 14px; color: var(--ink-3); }
+
+a.blog-tag { text-decoration: none; transition: background .2s, color .2s; }
+a.blog-tag:hover { background: var(--gold); color: #fff; }
+
+/* Service pages */
+.service-page-body { padding: 0 0 120px; background: var(--paper); }
+.service-page-list {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.service-page-list li {
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--paper);
+}
+.service-page-list li::before {
+  content: '✓';
+  color: var(--gold);
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.page-loader {
+  min-height: 50vh;
+  background: var(--paper);
 }

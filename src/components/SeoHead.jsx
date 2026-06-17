@@ -44,6 +44,7 @@ export function SeoHead({
   type = 'website',
   article,
   faq,
+  breadcrumbs,
 }) {
   useEffect(() => {
     const url = `${SITE}${path}`
@@ -68,7 +69,7 @@ export function SeoHead({
         headline: article.title,
         description: article.description,
         datePublished: article.date,
-        dateModified: article.date,
+        dateModified: article.updated || article.date,
         author: {
           '@type': 'Organization',
           name: article.author,
@@ -84,8 +85,22 @@ export function SeoHead({
         url,
       })
     } else {
-      const existing = document.getElementById('seo-article')
-      existing?.remove()
+      document.getElementById('seo-article')?.remove()
+    }
+
+    if (breadcrumbs?.length) {
+      setJsonLd('seo-breadcrumbs', {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((item, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: item.name,
+          item: item.url.startsWith('http') ? item.url : `${SITE}${item.url}`,
+        })),
+      })
+    } else {
+      document.getElementById('seo-breadcrumbs')?.remove()
     }
 
     if (faq?.length) {
@@ -102,7 +117,7 @@ export function SeoHead({
       const existing = document.getElementById('seo-faq')
       existing?.remove()
     }
-  }, [title, description, path, image, type, article, faq])
+  }, [title, description, path, image, type, article, faq, breadcrumbs])
 
   return null
 }

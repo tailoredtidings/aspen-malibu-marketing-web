@@ -6,6 +6,7 @@ export const allPosts = [
     "title": "AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead",
     "description": "How AI voice agents help local businesses answer 100% of calls 24/7, book appointments automatically, and pay for the entire marketing retainer.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "Voice AI",
@@ -22,6 +23,7 @@ export const allPosts = [
     "title": "Case Study: How Meridian Health Partners Increased Bookings 312% in 90 Days",
     "description": "Meridian Health Partners grew new patient bookings 312%, cut CPA 47%, and hit ROI in 2.1 months with Aspen Malibu Marketing's Bespoke Service.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "Case Study",
@@ -38,6 +40,7 @@ export const allPosts = [
     "title": "Generative Engine Optimization (GEO): The Complete 2026 Guide",
     "description": "What GEO is, why it matters in 2026, and how Aspen Malibu Marketing helps brands get cited in AI search — not just ranked on Google.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "GEO",
@@ -54,6 +57,7 @@ export const allPosts = [
     "title": "How to Get Cited in ChatGPT, Perplexity, and Google AI Overviews",
     "description": "Practical steps to earn AI search citations in ChatGPT, Perplexity, and Google AI Overviews — from entity clarity to authority signals.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "AI Search",
@@ -70,6 +74,7 @@ export const allPosts = [
     "title": "Growth Marketing Retainer Cost in 2026: Real Pricing, No Guesswork",
     "description": "What growth marketing retainers actually cost in 2026 — Aspen Malibu Marketing's tiered pricing for Growth Accelerator and Bespoke Service.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "Pricing",
@@ -86,6 +91,7 @@ export const allPosts = [
     "title": "llms.txt, Schema.org, and OKF: A Technical Guide for AI Discoverability",
     "description": "Technical walkthrough for llms.txt, schema.org markup, and Open Knowledge Framework — the files AI crawlers use to cite your brand.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "Technical SEO",
@@ -102,6 +108,7 @@ export const allPosts = [
     "title": "Growth Accelerator vs. Bespoke Service: Which Engagement Is Right for You?",
     "description": "Compare Aspen Malibu Marketing's Growth Accelerator and Bespoke Service — self-service platform vs. fully managed revenue system, with real pricing.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "Growth Accelerator",
@@ -118,6 +125,7 @@ export const allPosts = [
     "title": "What We Measure: ROAS, Retention, and the Metrics That Actually Matter",
     "description": "Aspen Malibu Marketing tracks revenue metrics — 5.8× ROAS, 96% retention, real pipeline — and ignores vanity metrics that waste your budget.",
     "date": "2026-06-17",
+    "updated": "2026-06-17",
     "author": "Aspen Malibu Marketing",
     "tags": [
       "ROAS",

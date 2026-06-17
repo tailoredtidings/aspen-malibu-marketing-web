@@ -7,6 +7,7 @@ import { LeadCapture } from '../components/lead-capture'
 const NAV_LINKS = [
   { href: '/#ai', label: 'AI Engine' },
   { href: '/#services', label: 'Services' },
+  { href: '/services/geo', label: 'GEO', route: true },
   { href: '/#pricing', label: 'Pricing' },
   { href: '/#estimate', label: 'Estimate' },
   { href: '/#reviews', label: 'Reviews' },

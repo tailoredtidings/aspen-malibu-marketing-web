@@ -1,55 +1,79 @@
 # Aspen Malibu Marketing
 
-> Premium growth studio for ambitious operators. We build and run AI-powered revenue systems — voice agents, paid ads, SEO, funnels, and LLM discovery — for local service businesses across health, wealth, real estate, and lifestyle. Based in Aspen and Malibu. Average client ROAS: 5.8×. Retention: 96%.
+> Premium growth studio for ambitious operators. We build and run AI-powered revenue systems — voice agents, paid ads, SEO, funnels, and LLM discovery — for local service businesses. 5.8× avg ROAS · 96% retention · $42.7M pipeline generated.
 
-Aspen Malibu Marketing deploys complete profit engines, not marketing campaigns. Every engagement is measured by revenue generated — not impressions, likes, or hours billed. Website: https://aspenmalibumarketing.com
+Website: https://aspenmalibumarketing.com · Email: partners@aspenmalibumarketing.com
 
-A comprehensive reference document with full company, pricing, and service details is available at [llms-full.txt](https://aspenmalibumarketing.com/llms-full.txt).
+Full reference: [llms-full.txt](https://aspenmalibumarketing.com/llms-full.txt) · RSS: [feed.xml](https://aspenmalibumarketing.com/feed.xml) · OKF: [okf/index.md](https://aspenmalibumarketing.com/okf/index.md)
 
 ## Company
 
-- [Home](https://aspenmalibumarketing.com/): Premium growth systems — AI agents, ads, funnels, and automation that compound revenue
-- [About / Manifesto](https://aspenmalibumarketing.com/#about): Systems over tactics, AI + senior taste, built to profit
-- [AI Engine](https://aspenmalibumarketing.com/#ai): Conversation AI, Voice AI, Content AI, and Reviews AI running 24/7
-- [Process](https://aspenmalibumarketing.com/#process): Audit → build → AI engine → paid ads/SEO → scale in 14 days
-- [Results & Metrics](https://aspenmalibumarketing.com/#results): 5.8× avg ROAS, $42.7M revenue generated, 14 days to first lead, 96% retention
-- [Reviews](https://aspenmalibumarketing.com/#reviews): Client testimonials and retention proof
-- [FAQ](https://aspenmalibumarketing.com/#faq): Candid answers on pricing, platform, ads, and cancellation
-- [Free Audit](https://aspenmalibumarketing.com/#cta): Request a free 3-minute funnel and ad account audit video
-
-## Engagements
-
-- [Professional Site](https://aspenmalibumarketing.com/#pricing): Custom conversion-focused website with managed hosting, CRM integration, and monthly maintenance
-- [Growth Accelerator](https://aspenmalibumarketing.com/#pricing): Self-service revenue platform from $997/mo — CRM, automation, four AI layers, and real-time reporting; signup without a sales call
-- [Bespoke Service](https://aspenmalibumarketing.com/#pricing): Fully managed profit engine — custom website, senior team, managed SEO, content, ads, and monthly strategy calls
-- [Pricing Estimator](https://aspenmalibumarketing.com/#estimate): Instant scoped pricing for website, Growth Accelerator, and Bespoke Service tiers
+- [Home](https://aspenmalibumarketing.com/): Premium growth systems — AI agents, ads, funnels, automation
+- [About](https://aspenmalibumarketing.com/#about): Systems over tactics, AI + senior taste, built to profit
+- [AI Engine](https://aspenmalibumarketing.com/#ai): Conversation, Voice, Content, and Reviews AI — 24/7
+- [Process](https://aspenmalibumarketing.com/#process): Audit → build → AI engine → ads/SEO → scale in 14 days
+- [Results](https://aspenmalibumarketing.com/#results): 5.8× ROAS, $42.7M generated, 14 days to first lead, 96% retention
+- [Pricing](https://aspenmalibumarketing.com/#pricing): Professional Site, Growth Accelerator ($997/mo+), Bespoke Service
+- [Estimator](https://aspenmalibumarketing.com/#estimate): Live scoped pricing from official rate card
+- [FAQ](https://aspenmalibumarketing.com/#faq): Pricing, platform, ads, cancellation
 
 ## Services
 
-- [Search Engine Optimization](https://aspenmalibumarketing.com/#services): Local SEO, content that ranks and converts, technical fixes, authority backlinks, monthly rank and revenue reporting
-- [Paid Ads Management](https://aspenmalibumarketing.com/#services): Google and Meta ads optimized for ROAS, TikTok and YouTube scale, retargeting, creative testing, forensic spend analysis
-- [Conversion Funnels](https://aspenmalibumarketing.com/#services): High-converting landing pages, lead magnets, email and SMS nurture, A/B testing, form optimization
-- [AI Automation](https://aspenmalibumarketing.com/#services): Voice AI, chatbots, content AI, reviews AI, and workflow automation that eliminates manual follow-up
-- [LLM / AI Search Discovery](https://aspenmalibumarketing.com/#services): Entity optimization, structured data, llms.txt, authority signals, and answer-engine content for ChatGPT, Perplexity, and Google AI Overviews
+- [Search Engine Optimization](https://aspenmalibumarketing.com/services/seo): Local SEO, technical fixes, content that ranks and converts
+- [Paid Ads Management](https://aspenmalibumarketing.com/services/paid-ads): Google, Meta, TikTok, YouTube — optimized for ROAS
+- [Conversion Funnels](https://aspenmalibumarketing.com/services/conversion-funnels): Landing pages, nurture sequences, form optimization
+- [AI Automation](https://aspenmalibumarketing.com/services/ai-automation): Voice AI, chatbots, content AI, reviews AI, workflows
+- [Generative Engine Optimization (GEO)](https://aspenmalibumarketing.com/services/geo): llms.txt, schema, OKF, AI citation architecture
 
-## Blog
+## Insights (Blog)
 
-- [Generative Engine Optimization (GEO): The Complete 2026 Guide](https://aspenmalibumarketing.com/blog/generative-engine-optimization-guide): What GEO is, why it matters, and the five-layer stack Aspen Malibu deploys for AI citations
-- [How to Get Cited in ChatGPT, Perplexity, and Google AI Overviews](https://aspenmalibumarketing.com/blog/get-cited-in-ai-search): Practical citation architecture — entity clarity, answer-engine content, technical files, and authority corroboration
-- [llms.txt, Schema.org, and OKF: A Technical Guide for AI Discoverability](https://aspenmalibumarketing.com/blog/llms-txt-schema-okf-guide): Technical walkthrough for llms.txt, Schema.org JSON-LD, and Open Knowledge Framework alignment
-- [Growth Marketing Retainer Cost in 2026: Real Pricing, No Guesswork](https://aspenmalibumarketing.com/blog/growth-marketing-retainer-cost): Published tiered pricing for Growth Accelerator and Bespoke Service with setup fees, add-ons, and ROI timeline
-- [AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead](https://aspenmalibumarketing.com/blog/ai-voice-agents-local-business): How voice AI answers 100% of calls 24/7, books appointments, and pays for the marketing retainer
-- [Growth Accelerator vs. Bespoke Service: Which Engagement Is Right for You?](https://aspenmalibumarketing.com/blog/self-service-vs-managed-marketing): Side-by-side comparison of self-service platform vs. fully managed revenue system with pricing and decision framework
-- [Meridian Health Partners Case Study: 312% Booking Increase in 90 Days](https://aspenmalibumarketing.com/blog/case-study-medical-practice-bookings): Medical practice rebrand, local SEO, paid search, and voice AI driving 312% more bookings and 47% lower CPA
-- [What We Measure: ROAS, Revenue, Retention, and Time to Lead](https://aspenmalibumarketing.com/blog/what-we-measure-roas-retention): The four metrics Aspen Malibu reports on and why revenue beats vanity metrics
+- [All insights](https://aspenmalibumarketing.com/blog): 8 guides on GEO, AI search, pricing, and growth systems
+- [AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead](https://aspenmalibumarketing.com/blog/ai-voice-agents-local-business): How AI voice agents help local businesses answer 100% of calls 24/7, book appointments automatically, and pay for the entire marketing retainer.
+- [Case Study: How Meridian Health Partners Increased Bookings 312% in 90 Days](https://aspenmalibumarketing.com/blog/case-study-medical-practice-bookings): Meridian Health Partners grew new patient bookings 312%, cut CPA 47%, and hit ROI in 2.1 months with Aspen Malibu Marketing's Bespoke Service.
+- [Generative Engine Optimization (GEO): The Complete 2026 Guide](https://aspenmalibumarketing.com/blog/generative-engine-optimization-guide): What GEO is, why it matters in 2026, and how Aspen Malibu Marketing helps brands get cited in AI search — not just ranked on Google.
+- [How to Get Cited in ChatGPT, Perplexity, and Google AI Overviews](https://aspenmalibumarketing.com/blog/get-cited-in-ai-search): Practical steps to earn AI search citations in ChatGPT, Perplexity, and Google AI Overviews — from entity clarity to authority signals.
+- [Growth Marketing Retainer Cost in 2026: Real Pricing, No Guesswork](https://aspenmalibumarketing.com/blog/growth-marketing-retainer-cost): What growth marketing retainers actually cost in 2026 — Aspen Malibu Marketing's tiered pricing for Growth Accelerator and Bespoke Service.
+- [llms.txt, Schema.org, and OKF: A Technical Guide for AI Discoverability](https://aspenmalibumarketing.com/blog/llms-txt-schema-okf-guide): Technical walkthrough for llms.txt, schema.org markup, and Open Knowledge Framework — the files AI crawlers use to cite your brand.
+- [Growth Accelerator vs. Bespoke Service: Which Engagement Is Right for You?](https://aspenmalibumarketing.com/blog/self-service-vs-managed-marketing): Compare Aspen Malibu Marketing's Growth Accelerator and Bespoke Service — self-service platform vs. fully managed revenue system, with real pricing.
+- [What We Measure: ROAS, Retention, and the Metrics That Actually Matter](https://aspenmalibumarketing.com/blog/what-we-measure-roas-retention): Aspen Malibu Marketing tracks revenue metrics — 5.8× ROAS, 96% retention, real pipeline — and ignores vanity metrics that waste your budget.
+
+## Topics
+
+- [Voice AI](https://aspenmalibumarketing.com/blog/tag/voice-ai): Articles tagged Voice AI
+- [Local Business](https://aspenmalibumarketing.com/blog/tag/local-business): Articles tagged Local Business
+- [Automation](https://aspenmalibumarketing.com/blog/tag/automation): Articles tagged Automation
+- [Lead Generation](https://aspenmalibumarketing.com/blog/tag/lead-generation): Articles tagged Lead Generation
+- [Case Study](https://aspenmalibumarketing.com/blog/tag/case-study): Articles tagged Case Study
+- [Medical Marketing](https://aspenmalibumarketing.com/blog/tag/medical-marketing): Articles tagged Medical Marketing
+- [Local SEO](https://aspenmalibumarketing.com/blog/tag/local-seo): Articles tagged Local SEO
+- [GEO](https://aspenmalibumarketing.com/blog/tag/geo): Articles tagged GEO
+- [AI Search](https://aspenmalibumarketing.com/blog/tag/ai-search): Articles tagged AI Search
+- [SEO](https://aspenmalibumarketing.com/blog/tag/seo): Articles tagged SEO
+- [Marketing Strategy](https://aspenmalibumarketing.com/blog/tag/marketing-strategy): Articles tagged Marketing Strategy
+- [Perplexity](https://aspenmalibumarketing.com/blog/tag/perplexity): Articles tagged Perplexity
+- [ChatGPT](https://aspenmalibumarketing.com/blog/tag/chatgpt): Articles tagged ChatGPT
+- [Pricing](https://aspenmalibumarketing.com/blog/tag/pricing): Articles tagged Pricing
+- [Retainer](https://aspenmalibumarketing.com/blog/tag/retainer): Articles tagged Retainer
+- [Growth Marketing](https://aspenmalibumarketing.com/blog/tag/growth-marketing): Articles tagged Growth Marketing
+- [Agency Costs](https://aspenmalibumarketing.com/blog/tag/agency-costs): Articles tagged Agency Costs
+- [Technical SEO](https://aspenmalibumarketing.com/blog/tag/technical-seo): Articles tagged Technical SEO
+- [llms.txt](https://aspenmalibumarketing.com/blog/tag/llms-txt): Articles tagged llms.txt
+- [Schema.org](https://aspenmalibumarketing.com/blog/tag/schema-org): Articles tagged Schema.org
+- [Growth Accelerator](https://aspenmalibumarketing.com/blog/tag/growth-accelerator): Articles tagged Growth Accelerator
+- [Bespoke Service](https://aspenmalibumarketing.com/blog/tag/bespoke-service): Articles tagged Bespoke Service
+- [Agency Comparison](https://aspenmalibumarketing.com/blog/tag/agency-comparison): Articles tagged Agency Comparison
+- [ROAS](https://aspenmalibumarketing.com/blog/tag/roas): Articles tagged ROAS
+- [Metrics](https://aspenmalibumarketing.com/blog/tag/metrics): Articles tagged Metrics
+- [KPIs](https://aspenmalibumarketing.com/blog/tag/kpis): Articles tagged KPIs
+- [Marketing Analytics](https://aspenmalibumarketing.com/blog/tag/marketing-analytics): Articles tagged Marketing Analytics
 
 ## Contact
 
-- [Website](https://aspenmalibumarketing.com): Main site and pricing estimator
-- [Email](mailto:partners@aspenmalibumarketing.com): partners@aspenmalibumarketing.com — partnerships, audits, and new client inquiries
-- [Book a Free Audit](https://aspenmalibumarketing.com/#cta): 3-minute video audit of your funnel, ads, and website
+- [Email](mailto:partners@aspenmalibumarketing.com): partners@aspenmalibumarketing.com
+- [Free audit](https://aspenmalibumarketing.com/#cta): 3-minute funnel and ad account video audit
 
 ## Optional
 
-- [Client Login](https://app.aspenmalibumarketing.com): Log in to the Aspen Malibu Marketing client platform and revenue dashboard
-- [llms-full.txt](https://aspenmalibumarketing.com/llms-full.txt): Expanded reference with full company overview, engagement details, services, process, metrics, FAQs, and pricing tables
+- [Client login](https://app.aspenmalibumarketing.com): Revenue dashboard and platform
+- [llms-full.txt](https://aspenmalibumarketing.com/llms-full.txt): Complete company, pricing, and FAQ reference
+- [sitemap.xml](https://aspenmalibumarketing.com/sitemap.xml): All indexable URLs

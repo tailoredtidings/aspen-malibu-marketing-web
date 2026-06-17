@@ -14,6 +14,12 @@ const contentDir = path.join(root, 'content', 'blog')
 const outFile = path.join(root, 'src', 'lib', 'blog-posts.generated.js')
 const SITE = 'https://aspenmalibumarketing.com'
 
+function calcReadingTime(content) {
+  const words = content.trim().split(/\s+/).filter(Boolean).length
+  const mins = Math.max(1, Math.ceil(words / 230))
+  return `${mins} min`
+}
+
 const posts = fs.readdirSync(contentDir)
   .filter(f => f.endsWith('.md'))
   .map(file => {
@@ -25,9 +31,10 @@ const posts = fs.readdirSync(contentDir)
       title: data.title,
       description: data.description,
       date: data.date,
+      updated: data.updated || data.date,
       author: data.author || 'Aspen Malibu Marketing',
       tags: data.tags || [],
-      readingTime: data.readingTime || '5 min',
+      readingTime: data.readingTime || calcReadingTime(content),
       content,
       url: `${SITE}/blog/${slug}`,
     }

@@ -9,6 +9,8 @@ import { IconArrow, IconBack } from '../components/icons'
 import { LeadCapture } from '../components/lead-capture'
 import { useReveal } from '../hooks/useReveal'
 import { getPostBySlug, getAllPosts } from '../lib/blog'
+import { BlogToc, tocHeadingComponents } from '../components/BlogToc'
+import { slugifyTag } from '../lib/services'
 
 function BlogPost() {
   const { slug } = useParams()
@@ -18,10 +20,15 @@ function BlogPost() {
   const proseRef = useReveal()
   const ctaRef = useReveal()
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) return <Navigate to="/404" replace />
 
   const faq = parseFaqFromMarkdown(post.content)
   const related = getAllPosts().filter(p => p.slug !== slug).slice(0, 3)
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Insights', url: '/blog' },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]
 
   return (
     <>
@@ -32,6 +39,7 @@ function BlogPost() {
         type="article"
         article={post}
         faq={faq.length ? faq : undefined}
+        breadcrumbs={breadcrumbs}
       />
       <div className="grain"></div>
       <Nav />
@@ -54,16 +62,19 @@ function BlogPost() {
               {post.tags.length > 0 && (
                 <div className="blog-card-tags">
                   {post.tags.map(tag => (
-                    <span key={tag} className="blog-tag">{tag}</span>
+                    <Link key={tag} to={`/blog/tag/${slugifyTag(tag)}`} className="blog-tag">{tag}</Link>
                   ))}
                 </div>
               )}
             </header>
 
+            <BlogToc content={post.content} />
+
             <div className="blog-prose reveal" ref={proseRef}>
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
+                  ...tocHeadingComponents(),
                   a: ({ href, children, ...props }) => {
                     const isInternal = href?.startsWith('/') || href?.startsWith('#')
                     if (isInternal && href?.startsWith('/blog/')) {

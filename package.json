@@ -4,9 +4,10 @@
   "description": "Aspen Malibu Marketing — Premium Growth Systems",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/generate-blog-data.mjs && vite",
-    "build": "node scripts/generate-blog-data.mjs && vite build && node scripts/prerender-blog.mjs",
-    "preview": "vite preview"
+    "dev": "node scripts/generate-blog-data.mjs && node scripts/generate-seo-files.mjs && vite",
+    "build": "node scripts/generate-blog-data.mjs && node scripts/generate-seo-files.mjs && vite build && node scripts/prerender-static.mjs",
+    "preview": "vite preview",
+    "new-post": "node scripts/new-post.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",
