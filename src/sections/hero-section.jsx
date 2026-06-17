@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import { IconArrow } from '../components/icons'
 import { LeadCapture } from '../components/lead-capture'
 
 const NAV_LINKS = [
-  { href: '#ai', label: 'AI Engine' },
-  { href: '#services', label: 'Services' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#estimate', label: 'Estimate' },
-  { href: '#reviews', label: 'Reviews' },
-  { href: '#results', label: 'Results' },
+  { href: '/#ai', label: 'AI Engine' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#pricing', label: 'Pricing' },
+  { href: '/#estimate', label: 'Estimate' },
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#results', label: 'Results' },
+  { href: '/blog', label: 'Insights', route: true },
 ]
 
 /* ===== NAV ===== */
@@ -42,19 +44,30 @@ function Nav() {
 
   const closeMenu = () => setMenuOpen(false);
   const openLead = () => { closeMenu(); setShowLead(true); };
+  const location = useLocation();
+  const isBlog = location.pathname.startsWith('/blog');
+
+  const navLinkClass = (href) => {
+    if (href === '/blog' && isBlog) return 'nav-link active';
+    return 'nav-link';
+  };
 
   return (
     <>
       {showLead && <LeadCapture onClose={() => setShowLead(false)} source="nav" />}
       <nav className={`nav ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
-        <a href="#top" className="nav-logo" onClick={closeMenu}>
-          <img src="assets/am-logo.png" alt="Aspen Malibu" />
+        <Link to="/" className="nav-logo" onClick={closeMenu}>
+          <img src="/assets/am-logo.png" alt="Aspen Malibu Marketing" />
           <span className="nav-logo-text">Aspen<em>Malibu</em></span>
-        </a>
+        </Link>
         <div className="nav-links">
-          {NAV_LINKS.map(({ href, label }) => (
-            <a key={href} href={href} className="nav-link">{label}</a>
-          ))}
+          {NAV_LINKS.map(({ href, label, route }) =>
+            route ? (
+              <Link key={href} to={href} className={navLinkClass(href)}>{label}</Link>
+            ) : (
+              <a key={href} href={href} className="nav-link">{label}</a>
+            )
+          )}
         </div>
         <button
           type="button"
@@ -94,9 +107,13 @@ function Nav() {
         <button type="button" className="nav-mobile-backdrop" aria-label="Close menu" onClick={closeMenu} />
         <div className="nav-mobile-panel" role="dialog" aria-modal="true" aria-label="Site navigation">
           <div className="nav-mobile-links">
-            {NAV_LINKS.map(({ href, label }) => (
-              <a key={href} href={href} className="nav-mobile-link" onClick={closeMenu}>{label}</a>
-            ))}
+            {NAV_LINKS.map(({ href, label, route }) =>
+              route ? (
+                <Link key={href} to={href} className="nav-mobile-link" onClick={closeMenu}>{label}</Link>
+              ) : (
+                <a key={href} href={href} className="nav-mobile-link" onClick={closeMenu}>{label}</a>
+              )
+            )}
           </div>
           <div className="nav-mobile-actions">
             <a

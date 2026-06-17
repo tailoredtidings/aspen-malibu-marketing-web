@@ -188,7 +188,7 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="assets/am-logo.png" alt="Aspen Malibu" loading="lazy" />
+              <img src="/assets/am-logo.png" alt="Aspen Malibu Marketing" loading="lazy" />
               <span className="footer-logo-text">Aspen<em>Malibu</em></span>
             </div>
             <p className="footer-tag">Premium growth systems for ambitious operators. We build, run, and compound the marketing machine.</p>
@@ -196,17 +196,18 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h4>Engagements</h4>
-            <a href="#pricing">Professional Site</a>
-            <a href="#pricing">Growth Accelerator</a>
-            <a href="#pricing">Bespoke Service</a>
-            <a href="#estimate">Run an estimate</a>
+            <a href="/#pricing">Professional Site</a>
+            <a href="/#pricing">Growth Accelerator</a>
+            <a href="/#pricing">Bespoke Service</a>
+            <a href="/#estimate">Run an estimate</a>
           </div>
           <div className="footer-col">
             <h4>The Studio</h4>
-            <a href="#ai">AI Engine</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#process">Process</a>
-            <a href="#results">Results</a>
+            <a href="/blog">Insights &amp; GEO Guides</a>
+            <a href="/#ai">AI Engine</a>
+            <a href="/#capabilities">Capabilities</a>
+            <a href="/#process">Process</a>
+            <a href="/#results">Results</a>
           </div>
           <div className="footer-col">
             <h4>Connect</h4>
