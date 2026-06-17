@@ -4,12 +4,11 @@
   "description": "Aspen Malibu Marketing — Premium Growth Systems",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node scripts/prerender-blog.mjs",
+    "dev": "node scripts/generate-blog-data.mjs && vite",
+    "build": "node scripts/generate-blog-data.mjs && vite build && node scripts/prerender-blog.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.1.0",
@@ -18,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.0",
+    "gray-matter": "^4.0.3",
     "marked": "^18.0.5",
     "vite": "^5.4.0"
   }
