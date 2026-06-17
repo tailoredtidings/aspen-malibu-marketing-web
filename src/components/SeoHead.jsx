@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
+import { SITE } from '../lib/blog-posts.generated.js'
 
-const SITE = 'https://aspenmalibumarketing.com'
 const DEFAULT_IMAGE = `${SITE}/assets/am-logo.png`
 
 function setMeta(name, content, attr = 'name') {

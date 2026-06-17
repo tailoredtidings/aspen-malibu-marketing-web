@@ -28,7 +28,7 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://aspenmalibumarketing.com/sitemap.xml
+Sitemap: https://www.aspenmalibumarketing.com/sitemap.xml
 
 # AI discovery files
 # llms.txt, llms-full.txt, feed.xml, /okf/

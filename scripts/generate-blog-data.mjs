@@ -7,12 +7,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
+import { SITE } from './site-config.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
 const contentDir = path.join(root, 'content', 'blog')
 const outFile = path.join(root, 'src', 'lib', 'blog-posts.generated.js')
-const SITE = 'https://aspenmalibumarketing.com'
 
 function calcReadingTime(content) {
   const words = content.trim().split(/\s+/).filter(Boolean).length

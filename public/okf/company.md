@@ -2,7 +2,7 @@
 type: Organization
 title: Aspen Malibu Marketing
 description: Premium growth studio — AI automation, GEO, SEO, paid ads, and conversion funnels.
-resource: https://aspenmalibumarketing.com/
+resource: https://www.aspenmalibumarketing.com/
 tags: [marketing, GEO, AI, growth]
 ---
 

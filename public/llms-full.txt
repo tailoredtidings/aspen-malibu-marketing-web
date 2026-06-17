@@ -3,7 +3,7 @@ Generated: 2026-06-17
 
 > Premium growth studio for ambitious operators. We build profit machines — not marketing campaigns.
 
-**Website:** https://aspenmalibumarketing.com
+**Website:** https://www.aspenmalibumarketing.com
 **Email:** partners@aspenmalibumarketing.com
 **Metrics:** 5.8× avg ROAS · $42.7M pipeline · 14 days to first lead · 96% retention
 
@@ -15,66 +15,66 @@ Generated: 2026-06-17
 
 ## Services
 
-- Search Engine Optimization — https://aspenmalibumarketing.com/services/seo: Local SEO, technical fixes, content that ranks and converts
-- Paid Ads Management — https://aspenmalibumarketing.com/services/paid-ads: Google, Meta, TikTok, YouTube — optimized for ROAS
-- Conversion Funnels — https://aspenmalibumarketing.com/services/conversion-funnels: Landing pages, nurture sequences, form optimization
-- AI Automation — https://aspenmalibumarketing.com/services/ai-automation: Voice AI, chatbots, content AI, reviews AI, workflows
-- Generative Engine Optimization (GEO) — https://aspenmalibumarketing.com/services/geo: llms.txt, schema, OKF, AI citation architecture
+- Search Engine Optimization — https://www.aspenmalibumarketing.com/services/seo: Local SEO, technical fixes, content that ranks and converts
+- Paid Ads Management — https://www.aspenmalibumarketing.com/services/paid-ads: Google, Meta, TikTok, YouTube — optimized for ROAS
+- Conversion Funnels — https://www.aspenmalibumarketing.com/services/conversion-funnels: Landing pages, nurture sequences, form optimization
+- AI Automation — https://www.aspenmalibumarketing.com/services/ai-automation: Voice AI, chatbots, content AI, reviews AI, workflows
+- Generative Engine Optimization (GEO) — https://www.aspenmalibumarketing.com/services/geo: llms.txt, schema, OKF, AI citation architecture
 
 ## All blog posts (8)
 
 ### AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead
 How AI voice agents help local businesses answer 100% of calls 24/7, book appointments automatically, and pay for the entire marketing retainer.
-URL: https://aspenmalibumarketing.com/blog/ai-voice-agents-local-business
+URL: https://www.aspenmalibumarketing.com/blog/ai-voice-agents-local-business
 Tags: Voice AI, Local Business, Automation, Lead Generation
 
 ### Case Study: How Meridian Health Partners Increased Bookings 312% in 90 Days
 Meridian Health Partners grew new patient bookings 312%, cut CPA 47%, and hit ROI in 2.1 months with Aspen Malibu Marketing's Bespoke Service.
-URL: https://aspenmalibumarketing.com/blog/case-study-medical-practice-bookings
+URL: https://www.aspenmalibumarketing.com/blog/case-study-medical-practice-bookings
 Tags: Case Study, Medical Marketing, Local SEO, Voice AI
 
 ### Generative Engine Optimization (GEO): The Complete 2026 Guide
 What GEO is, why it matters in 2026, and how Aspen Malibu Marketing helps brands get cited in AI search — not just ranked on Google.
-URL: https://aspenmalibumarketing.com/blog/generative-engine-optimization-guide
+URL: https://www.aspenmalibumarketing.com/blog/generative-engine-optimization-guide
 Tags: GEO, AI Search, SEO, Marketing Strategy
 
 ### How to Get Cited in ChatGPT, Perplexity, and Google AI Overviews
 Practical steps to earn AI search citations in ChatGPT, Perplexity, and Google AI Overviews — from entity clarity to authority signals.
-URL: https://aspenmalibumarketing.com/blog/get-cited-in-ai-search
+URL: https://www.aspenmalibumarketing.com/blog/get-cited-in-ai-search
 Tags: AI Search, GEO, Perplexity, ChatGPT
 
 ### Growth Marketing Retainer Cost in 2026: Real Pricing, No Guesswork
 What growth marketing retainers actually cost in 2026 — Aspen Malibu Marketing's tiered pricing for Growth Accelerator and Bespoke Service.
-URL: https://aspenmalibumarketing.com/blog/growth-marketing-retainer-cost
+URL: https://www.aspenmalibumarketing.com/blog/growth-marketing-retainer-cost
 Tags: Pricing, Retainer, Growth Marketing, Agency Costs
 
 ### llms.txt, Schema.org, and OKF: A Technical Guide for AI Discoverability
 Technical walkthrough for llms.txt, schema.org markup, and Open Knowledge Framework — the files AI crawlers use to cite your brand.
-URL: https://aspenmalibumarketing.com/blog/llms-txt-schema-okf-guide
+URL: https://www.aspenmalibumarketing.com/blog/llms-txt-schema-okf-guide
 Tags: Technical SEO, llms.txt, Schema.org, GEO
 
 ### Growth Accelerator vs. Bespoke Service: Which Engagement Is Right for You?
 Compare Aspen Malibu Marketing's Growth Accelerator and Bespoke Service — self-service platform vs. fully managed revenue system, with real pricing.
-URL: https://aspenmalibumarketing.com/blog/self-service-vs-managed-marketing
+URL: https://www.aspenmalibumarketing.com/blog/self-service-vs-managed-marketing
 Tags: Growth Accelerator, Bespoke Service, Agency Comparison, Pricing
 
 ### What We Measure: ROAS, Retention, and the Metrics That Actually Matter
 Aspen Malibu Marketing tracks revenue metrics — 5.8× ROAS, 96% retention, real pipeline — and ignores vanity metrics that waste your budget.
-URL: https://aspenmalibumarketing.com/blog/what-we-measure-roas-retention
+URL: https://www.aspenmalibumarketing.com/blog/what-we-measure-roas-retention
 Tags: ROAS, Metrics, KPIs, Marketing Analytics
 
 ## Service pages
 
-- https://aspenmalibumarketing.com/services/seo
-- https://aspenmalibumarketing.com/services/paid-ads
-- https://aspenmalibumarketing.com/services/conversion-funnels
-- https://aspenmalibumarketing.com/services/ai-automation
-- https://aspenmalibumarketing.com/services/geo
+- https://www.aspenmalibumarketing.com/services/seo
+- https://www.aspenmalibumarketing.com/services/paid-ads
+- https://www.aspenmalibumarketing.com/services/conversion-funnels
+- https://www.aspenmalibumarketing.com/services/ai-automation
+- https://www.aspenmalibumarketing.com/services/geo
 
 ## Technical discovery files
 
-- https://aspenmalibumarketing.com/llms.txt
-- https://aspenmalibumarketing.com/llms-full.txt
-- https://aspenmalibumarketing.com/sitemap.xml
-- https://aspenmalibumarketing.com/feed.xml
-- https://aspenmalibumarketing.com/okf/index.md
+- https://www.aspenmalibumarketing.com/llms.txt
+- https://www.aspenmalibumarketing.com/llms-full.txt
+- https://www.aspenmalibumarketing.com/sitemap.xml
+- https://www.aspenmalibumarketing.com/feed.xml
+- https://www.aspenmalibumarketing.com/okf/index.md

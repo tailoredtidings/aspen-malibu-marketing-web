@@ -1,9 +1,9 @@
 ---
 type: Service
 title: seo
-resource: https://aspenmalibumarketing.com/services/seo
+resource: https://www.aspenmalibumarketing.com/services/seo
 ---
 
 # Service: seo
 
-https://aspenmalibumarketing.com/services/seo
+https://www.aspenmalibumarketing.com/services/seo

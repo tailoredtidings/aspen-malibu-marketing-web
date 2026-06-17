@@ -1,12 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.aspenmalibumarketing.com" }],
-      "destination": "https://aspenmalibumarketing.com/:path*",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!api/|assets/|blog/|services/|okf/|404/|robots\\.txt|sitemap\\.xml|feed\\.xml|llms\\.txt|llms-full\\.txt).*)",

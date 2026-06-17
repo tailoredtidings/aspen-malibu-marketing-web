@@ -2,7 +2,7 @@
 type: Article
 title: How to Get Cited in ChatGPT, Perplexity, and Google AI Overviews
 description: Practical steps to earn AI search citations in ChatGPT, Perplexity, and Google AI Overviews — from entity clarity to authority signals.
-resource: https://aspenmalibumarketing.com/blog/get-cited-in-ai-search
+resource: https://www.aspenmalibumarketing.com/blog/get-cited-in-ai-search
 tags: [AI Search, GEO, Perplexity, ChatGPT]
 ---
 
@@ -10,5 +10,5 @@ tags: [AI Search, GEO, Perplexity, ChatGPT]
 
 Practical steps to earn AI search citations in ChatGPT, Perplexity, and Google AI Overviews — from entity clarity to authority signals.
 
-Read full article: https://aspenmalibumarketing.com/blog/get-cited-in-ai-search
-Markdown: https://aspenmalibumarketing.com/blog/get-cited-in-ai-search.md
+Read full article: https://www.aspenmalibumarketing.com/blog/get-cited-in-ai-search
+Markdown: https://www.aspenmalibumarketing.com/blog/get-cited-in-ai-search.md

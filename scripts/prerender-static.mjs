@@ -7,12 +7,12 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import { SITE } from './site-config.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
 const dist = path.join(root, 'dist')
 const contentDir = path.join(root, 'content', 'blog')
-const SITE = 'https://aspenmalibumarketing.com'
 
 const SERVICE_SLUGS = ['seo', 'paid-ads', 'conversion-funnels', 'ai-automation', 'geo']
 

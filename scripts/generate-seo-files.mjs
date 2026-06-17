@@ -6,12 +6,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { SITE } from './site-config.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.join(__dirname, '..')
 const publicDir = path.join(root, 'public')
 const okfDir = path.join(publicDir, 'okf')
-const SITE = 'https://aspenmalibumarketing.com'
 const TODAY = new Date().toISOString().slice(0, 10)
 
 const { allPosts } = await import(`file://${path.join(root, 'src/lib/blog-posts.generated.js')}`)

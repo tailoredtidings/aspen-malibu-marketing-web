@@ -1,9 +1,9 @@
 ---
 type: Service
 title: geo
-resource: https://aspenmalibumarketing.com/services/geo
+resource: https://www.aspenmalibumarketing.com/services/geo
 ---
 
 # Service: geo
 
-https://aspenmalibumarketing.com/services/geo
+https://www.aspenmalibumarketing.com/services/geo
