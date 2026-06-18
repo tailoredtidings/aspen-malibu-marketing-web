@@ -39,7 +39,7 @@ const ADDONS = [
 const PRODUCTS = [
   { id: 'site',    label: 'Website Only',        sub: 'Build + managed hosting' },
   { id: 'saas',    label: 'Growth Accelerator',  sub: 'Self-service platform' },
-  { id: 'bespoke', label: 'Bespoke Service',      sub: 'Full-managed system' },
+  { id: 'bespoke', label: 'Bespoke Service',      sub: 'Fully-managed system' },
 ];
 
 const fmt = n => n >= 1000 ? '$' + n.toLocaleString('en-US') : '$' + n;
