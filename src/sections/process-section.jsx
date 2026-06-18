@@ -230,6 +230,8 @@ function Footer() {
             <a href="https://www.linkedin.com/company/aspen-malibu-mktg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://x.com/AspenMalibuMktg" target="_blank" rel="noopener noreferrer">X</a>
             <a href="https://www.instagram.com/aspenmalibumktg" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/people/Aspen-Malibu-Mktg/61591150193568/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.threads.com/@aspenmalibumktg" target="_blank" rel="noopener noreferrer">Threads</a>
             <a
               href="https://app.aspenmalibumarketing.com"
               target="_blank"
