@@ -226,7 +226,10 @@ function Footer() {
               Sign up — Growth Accelerator
             </button>
             <a href="mailto:partners@aspenmalibumarketing.com">Email</a>
-            <a href="#" aria-disabled="true">LinkedIn</a>
+            <a href="https://www.upwork.com/agencies/1699876662595031040/" target="_blank" rel="noopener noreferrer">Upwork</a>
+            <a href="https://www.linkedin.com/company/aspen-malibu-mktg/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://x.com/AspenMalibuMktg" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="https://www.instagram.com/aspenmalibumktg" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a
               href="https://app.aspenmalibumarketing.com"
               target="_blank"
