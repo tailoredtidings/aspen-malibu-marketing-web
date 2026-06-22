@@ -61,6 +61,12 @@ function shell({ title, description, canonical, bodyHtml, jsonLd }) {
 <body>
   ${bodyHtml}
   <p style="max-width:760px;margin:2rem auto;padding:0 1.5rem"><a href="/">Home</a> · <a href="/blog">Insights</a></p>
+
+  <!-- GoHighLevel External Tracking -->
+  <script 
+    src="https://link.msgsndr.com/js/external-tracking.js"
+    data-tracking-id="tk_8d82b62691534f5b923f18c63271ba77">
+  </script>
 </body>
 </html>`
 }
