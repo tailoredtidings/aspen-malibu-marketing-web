@@ -78,6 +78,10 @@ async function createGhlContact(form) {
     notes: form.challenge ? `Biggest growth challenge: ${form.challenge}` : undefined,
   }
 
+  if (process.env.GHL_LOCATION_ID) {
+    payload.locationId = process.env.GHL_LOCATION_ID
+  }
+
   // remove undefined values
   Object.keys(payload).forEach(k => {
     if (payload[k] === undefined) delete payload[k]
