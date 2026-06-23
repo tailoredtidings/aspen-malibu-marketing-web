@@ -140,7 +140,7 @@ You do not need to replace your entire sales team on day one. The highest-ROI ap
 
 Our [Growth Accelerator](/blog/self-service-vs-managed-marketing) platform includes the infrastructure to run these agents. [Bespoke Service](/blog/self-service-vs-managed-marketing) clients get the full custom build plus ongoing optimization from our team.
 
-[Estimate your scope](/ #estimate) to see what a complete revenue engine looks like for your business size.
+[Estimate your scope](/#estimate) to see what a complete revenue engine looks like for your business size.
 
 ## The Bottom Line
 
@@ -170,4 +170,4 @@ We design guardrails: the agent is only allowed to discuss pre-approved informat
 
 **How much does it cost to implement AI sales agents?**
 
-It depends on scope and whether you want self-service or fully managed. Self-service starts in the Growth Accelerator tiers. Full custom build plus ongoing optimization lives in Bespoke Service. [Run an estimate](/ #estimate) to see current pricing.
+It depends on scope and whether you want self-service or fully managed. Self-service starts in the Growth Accelerator tiers. Full custom build plus ongoing optimization lives in Bespoke Service. [Run an estimate](/#estimate) to see current pricing.
