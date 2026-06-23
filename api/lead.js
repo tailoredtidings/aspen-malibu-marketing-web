@@ -57,6 +57,56 @@ async function sendViaResend(form) {
   return { ok: true }
 }
 
+async function createGhlContact(form) {
+  const pit = process.env.GHL_PIT
+  if (!pit) {
+    return { ok: false, reason: 'ghl_not_configured' }
+  }
+
+  const phone = (form.phone || '').replace(/\s+/g, '')
+
+  const payload = {
+    firstName: form.firstName,
+    lastName: form.lastName,
+    email: form.email,
+    phone,
+    name: `${form.firstName} ${form.lastName}`.trim(),
+    companyName: form.business,
+    website: form.website || undefined,
+    source: form.source || 'Growth Audit',
+    tags: ['growth-audit'],
+    notes: form.challenge ? `Biggest growth challenge: ${form.challenge}` : undefined,
+  }
+
+  // remove undefined values
+  Object.keys(payload).forEach(k => {
+    if (payload[k] === undefined) delete payload[k]
+  })
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/contacts/', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${pit}`,
+        'Content-Type': 'application/json',
+        'Version': '2021-07-28',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (!res.ok) {
+      const text = await res.text()
+      console.error('GHL contact create failed', res.status, text)
+      return { ok: false, reason: 'ghl_api_error' }
+    }
+
+    return { ok: true }
+  } catch (err) {
+    console.error('GHL contact fetch error', err)
+    return { ok: false, reason: 'ghl_fetch_failed' }
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -68,9 +118,21 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' })
   }
 
-  const result = await sendViaResend(form)
-  if (!result.ok) {
-    return res.status(result.reason === 'not_configured' ? 503 : 502).json({ error: result.reason })
+  // Send to both email (for immediate notification) and GHL (primary CRM)
+  const [ghlResult, emailResult] = await Promise.all([
+    createGhlContact(form),
+    sendViaResend(form),
+  ])
+
+  if (!ghlResult.ok) {
+    console.warn('GHL submission failed:', ghlResult.reason)
+  }
+  if (!emailResult.ok) {
+    console.warn('Email submission failed:', emailResult.reason)
+  }
+
+  if (!ghlResult.ok && !emailResult.ok) {
+    return res.status(502).json({ error: 'delivery_failed' })
   }
 
   return res.status(200).json({ ok: true })
