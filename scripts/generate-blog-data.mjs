@@ -1,4 +1,4 @@
-# !/usr/bin/env node
+#!/usr/bin/env node
 /**
  * Parse blog markdown at build time (Node-only) so the browser bundle
  * never pulls in gray-matter / Buffer.
