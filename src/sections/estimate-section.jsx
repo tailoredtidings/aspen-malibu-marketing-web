@@ -108,23 +108,23 @@ function Estimate() {
   return (
     <>
       {showLead && <LeadCapture onClose={() => setShowLead(false)} source="estimate" />}
-      <section id="estimate" className="est-section">
+      <section id="estimate" className="est-section" aria-labelledby="estimate-title">
       <div className="container">
         <div className="sec-head reveal" ref={useReveal()}>
           <span className="sec-tag">05 — Investment Estimator</span>
-          <h2 className="sec-title">Build your <em>estimate.</em></h2>
+          <h2 className="sec-title" id="estimate-title">Build your <em>estimate.</em></h2>
           <p className="sec-sub">Exact pricing from our official rate card — calibrated to your scope. Final confirmation on a free 30-min discovery call.</p>
         </div>
 
         <div className="est-shell reveal" ref={useReveal()}>
-          <div className="est-panel">
+          <div className="est-panel" role="form" aria-label="Pricing estimator">
 
             {/* A — Product */}
             <div className="est-group">
               <div className="est-group-head"><span className="est-group-num">A</span><span className="est-group-lbl">What are you estimating?</span></div>
-              <div className="est-segs s3">
+              <div className="est-segs s3" role="radiogroup" aria-label="Product type">
                 {PRODUCTS.map((p, i) => (
-                  <button key={i} className={`est-seg ${product === p.id ? 'on' : ''}`} onClick={() => { setProduct(p.id); setWithSite(false); setAddons({}); }}>
+                  <button key={i} type="button" role="radio" aria-checked={product === p.id} aria-label={p.label} className={`est-seg ${product === p.id ? 'on' : ''}`} onClick={() => { setProduct(p.id); setWithSite(false); setAddons({}); }}>
                     <span className="est-seg-lbl">{p.label}</span>
                     <span className="est-seg-sub">{p.sub}</span>
                   </button>
@@ -136,7 +136,7 @@ function Estimate() {
             {(product === 'saas' || product === 'bespoke') && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">B</span><span className="est-group-lbl">Add a managed website?</span></div>
-                <button className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
+                <button type="button" aria-pressed={withSite} className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
                   <span className="est-toggle-check">
                     <IconCheck />
                   </span>
@@ -149,9 +149,9 @@ function Estimate() {
             {(product === 'site' || ((product === 'saas' || product === 'bespoke') && withSite)) && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">{product === 'site' ? 'B' : 'C'}</span><span className="est-group-lbl">Website scope</span></div>
-                <div className="est-segs s5">
+                <div className="est-segs s5" role="radiogroup" aria-label="Website complexity">
                   {SITE_TIERS.map((s, i) => (
-                    <button key={i} className={`est-seg ${siteComplexity === i ? 'on' : ''}`} onClick={() => setSiteComplexity(i)}>
+                    <button key={i} type="button" role="radio" aria-checked={siteComplexity === i} aria-label={s.label} className={`est-seg ${siteComplexity === i ? 'on' : ''}`} onClick={() => setSiteComplexity(i)}>
                       <span className="est-seg-lbl">{s.label}</span>
                       <span className="est-seg-sub">{s.sub}</span>
                       <span className="est-seg-price">{fmt(s.setup)}{s.label === 'Enterprise' ? '+' : ''}</span>
@@ -165,9 +165,9 @@ function Estimate() {
             {(product === 'saas' || product === 'bespoke') && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">{withSite ? 'D' : 'C'}</span><span className="est-group-lbl">Business revenue tier</span></div>
-                <div className="est-segs s4">
+                <div className="est-segs s4" role="radiogroup" aria-label="Business revenue tier">
                   {(product === 'saas' ? SAAS_TIERS : BESPOKE_TIERS).map((s, i) => (
-                    <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
+                    <button key={i} type="button" role="radio" aria-checked={revTier === i} aria-label={s.label} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
                       <span className="est-seg-lbl">{s.label}</span>
                       <span className="est-seg-sub">{s.sub}</span>
                       <span className="est-seg-price">{fmtMonthly(s, s.monthly)}</span>
@@ -183,9 +183,9 @@ function Estimate() {
                 <div className="est-group-head"><span className="est-group-num">
                   {product === 'site' ? 'C' : (withSite ? 'E' : 'D')}
                 </span><span className="est-group-lbl">Add-ons</span></div>
-                <div className="est-addons">
+                <div className="est-addons" role="group" aria-label="Optional add-ons">
                   {visibleAddons.map(ao => (
-                    <button key={ao.id} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
+                    <button key={ao.id} type="button" aria-pressed={!!addons[ao.id]} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
                       <span className="est-ao-chk">
                         <IconCheck />
                       </span>
@@ -213,7 +213,7 @@ function Estimate() {
           </div>
 
           {/* Summary */}
-          <aside className="est-summary">
+          <aside className="est-summary" aria-live="polite" aria-label="Live pricing estimate">
             <div className="est-sum-card">
               <div className="est-sum-live"><span className="dot"></span>LIVE ESTIMATE</div>
               <div className="est-sum-eng-name">
@@ -243,7 +243,7 @@ function Estimate() {
                 </div>
               </div>
 
-              <button className="est-sum-cta" onClick={() => setShowLead(true)}>
+              <button type="button" className="est-sum-cta" onClick={() => setShowLead(true)}>
                 Lock in this scope
                 <IconArrow />
               </button>
