@@ -142,19 +142,19 @@ export function LeadCapture({ onClose, source = 'general' }) {
               <div className="modal-field">
                 <label htmlFor="lc-email">Business email *</label>
                 <input id="lc-email" type="email" placeholder="you@yourbusiness.com" value={form.email} onChange={e => update('email', e.target.value)} />
-              </div>
+                </div>
               <div className="modal-field">
                 <label htmlFor="lc-phone">Phone *</label>
                 <input id="lc-phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={e => update('phone', e.target.value)} />
-              </div>
+                </div>
               <div className="modal-field">
                 <label htmlFor="lc-biz">Business name *</label>
                 <input id="lc-biz" type="text" placeholder="Acme Co." value={form.business} onChange={e => update('business', e.target.value)} />
-              </div>
+                </div>
               <div className="modal-field">
                 <label htmlFor="lc-site">Website (optional)</label>
                 <input id="lc-site" type="text" placeholder="https://yourbusiness.com" value={form.website} onChange={e => update('website', e.target.value)} />
-              </div>
+                </div>
               <div className="modal-field">
                 <label htmlFor="lc-challenge">Biggest growth challenge right now?</label>
                 <textarea id="lc-challenge" rows="3" placeholder="Not enough leads? High cost per acquisition? Can't scale ads?" value={form.challenge} onChange={e => update('challenge', e.target.value)} style={{resize:'vertical',fontFamily:'inherit',lineHeight:1.5}} />
