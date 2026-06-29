@@ -216,6 +216,10 @@ function Hero() {
           <a href="#ai" className="btn-outline">See how it works</a>
         </div>
 
+        <div className="hero-phone">
+          Or call <a href="tel:+17542582106">(754) 258-2106</a>
+        </div>
+
         <div className="hero-cards">
           <div className="hcard hc1">
             <div className="hcard-head"><span className="live"></span>VOICE AI · LIVE</div>
