@@ -69,6 +69,7 @@ function Nav() {
               <a key={href} href={href} className="nav-link">{label}</a>
             )
           )}
+          <a href="tel:+17542582106" className="nav-link nav-phone" onClick={() => window.gtag?.('event', 'nav_phone_click')}>(754) 258-2106</a>
         </div>
         <button
           type="button"
@@ -115,6 +116,7 @@ function Nav() {
                 <a key={href} href={href} className="nav-mobile-link" onClick={closeMenu}>{label}</a>
               )
             )}
+            <a href="tel:+17542582106" className="nav-mobile-link" onClick={() => { window.gtag?.('event', 'nav_phone_click'); closeMenu(); }}>(754) 258-2106</a>
           </div>
           <div className="nav-mobile-actions">
             <a
@@ -160,7 +162,7 @@ function HeroCanvas() {
       const w = canvas.width, h = canvas.height
       blobs.forEach(b => { b.x += b.dx; b.y += b.dy; if (b.x < -0.2 || b.x > 1.2) b.dx *= -1; if (b.y < -0.2 || b.y > 1.2) b.dy *= -1 })
       ctx.fillStyle = '#FBF8F2'
-      ctx.fillRect(0, 0, w, h)
+      ctx.fillRect(0, w, h)
       blobs.forEach(b => {
         const g = ctx.createRadialGradient(b.x * w, b.y * h, 0, b.x * w, b.y * h, b.r * Math.max(w, h))
         g.addColorStop(0, `hsla(${b.hue}, ${b.sat}%, ${b.light}%, 0.18)`)
@@ -271,7 +273,7 @@ const LOGO_ITEMS = [
 function LogoStrip() {
   return (
     <section className="logo-strip" style={{padding: '56px 0'}}>
-      <div className="logo-strip-label">Trusted by ambitious operators across health, wealth, real estate &amp; lifestyle.</div>
+      <div className="logo-strip-label">Trusted by ambitious operators across health, wealth, real estate & lifestyle.</div>
       <div className="logo-marquee">
         <div className="logo-marquee-track">
           {[...LOGO_ITEMS,...LOGO_ITEMS].map((it,i) => (
@@ -318,7 +320,6 @@ function Manifesto() {
 }
 
 
-
 function HeroSection() {
   return (
     <>
@@ -329,7 +330,6 @@ function HeroSection() {
     </>
   )
 }
-
 export default HeroSection
 
 export { Nav, Hero, LogoStrip, Manifesto }

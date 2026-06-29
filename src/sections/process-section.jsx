@@ -193,6 +193,7 @@ function Footer() {
             </div>
             <p className="footer-tag">Premium growth systems for ambitious operators. We build, run, and compound the marketing machine.</p>
             <div className="footer-email">partners@aspenmalibumarketing.com</div>
+            <a href="tel:+17542582106" className="footer-phone">(754) 258-2106</a>
           </div>
           <div className="footer-col">
             <h4>Engagements</h4>
@@ -219,6 +220,7 @@ function Footer() {
           </div>
           <div className="footer-col">
             <h4>Connect</h4>
+            <a href="tel:+17542582106">Call (754) 258-2106</a>
             <button onClick={() => setShowLead(true)} style={{display:'block',fontSize:14,color:'rgba(250,250,248,0.72)',padding:'5px 0',transition:'color .2s',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
               Book a free audit
             </button>
@@ -276,7 +278,6 @@ function Footer() {
     </footer>
   );
 }
-
 
 
 export { Process, Metrics, FAQ, CTA, Footer }
