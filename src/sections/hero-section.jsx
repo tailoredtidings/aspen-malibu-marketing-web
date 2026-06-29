@@ -162,7 +162,7 @@ function HeroCanvas() {
       const w = canvas.width, h = canvas.height
       blobs.forEach(b => { b.x += b.dx; b.y += b.dy; if (b.x < -0.2 || b.x > 1.2) b.dx *= -1; if (b.y < -0.2 || b.y > 1.2) b.dy *= -1 })
       ctx.fillStyle = '#FBF8F2'
-      ctx.fillRect(0, w, h)
+      ctx.fillRect(0, 0, w, h)
       blobs.forEach(b => {
         const g = ctx.createRadialGradient(b.x * w, b.y * h, 0, b.x * w, b.y * h, b.r * Math.max(w, h))
         g.addColorStop(0, `hsla(${b.hue}, ${b.sat}%, ${b.light}%, 0.18)`)
