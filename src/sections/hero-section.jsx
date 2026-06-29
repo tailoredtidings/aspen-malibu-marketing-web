@@ -216,8 +216,8 @@ function Hero() {
           <a href="#ai" className="btn-outline">See how it works</a>
         </div>
 
-        <div className="hero-phone">
-          Or call <a href="tel:+17542582106">(754) 258-2106</a>
+        <div style={{marginTop:'10px', fontSize:'14px', color:'rgba(10,14,26,0.75)'}}>
+          Or call <a href="tel:+17542582106" style={{color:'#B8912A', textDecoration:'underline'}}>(754) 258-2106</a>
         </div>
 
         <div className="hero-cards">
