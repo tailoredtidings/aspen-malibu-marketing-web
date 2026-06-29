@@ -117,7 +117,7 @@ function LeadCapture({ onClose, source = 'general' }) {
               </div>
             </div>
 
-            {error && <p style={{color: '#b91c1c', fontSize: 13, margin: '4px 0'}}>{error}</p>}
+            {error && <p style={{color: '#b91c1c', fontSize: 13, margin: '4px 0'}}>{error}</p>
 
             <button
               className={`modal-cta ${canSubmit ? 'ready' : ''}`}
@@ -147,6 +147,9 @@ function LeadCapture({ onClose, source = 'general' }) {
               <a href="mailto:partners@aspenmalibumarketing.com" className="modal-cta ready" style={{ width: 'auto', padding: '14px 22px' }}>
                 Email us directly
                 <IconArrow />
+              </a>
+              <a href="tel:+17542582106" className="btn-outline" style={{ padding: '14px 22px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                Call (754) 258-2106
               </a>
               <button className="btn-outline" onClick={onClose} style={{ padding: '14px 22px' }}>
                 Close

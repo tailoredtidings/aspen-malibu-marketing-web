@@ -190,6 +190,9 @@ export function LeadCapture({ onClose, source = 'general' }) {
                 Email us directly
                 <IconArrow />
               </a>
+              <a href="tel:+17542582106" className="btn-outline" style={{ padding: '14px 22px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                Call (754) 258-2106
+              </a>
               <button className="btn-outline" onClick={onClose} style={{ padding: '14px 22px' }}>
                 Close
               </button>
