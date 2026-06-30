@@ -112,9 +112,9 @@ export default function PrivacyPolicy() {
               Aspen Malibu Marketing LLC d/b/a AM Marketing<br/>
               Attn: Privacy Team<br/>
               1011 44th Ave N, Unit 6<br/>
-              Nashville, TN 37209<br/>
+              Fort Lauderdale, FL 33301<br/>
               Email: <a href="mailto:privacy@aspenmalibumarketing.com">privacy@aspenmalibumarketing.com</a><br/>
-              Business Phone: (248) 535-7383<br/>
+              Business Phone: (754) 258-2106<br/>
               <a href="https://www.aspenmalibumarketing.com">aspenmalibumarketing.com</a>
             </address>
 
