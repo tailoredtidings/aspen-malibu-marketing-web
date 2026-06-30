@@ -111,8 +111,8 @@ export default function PrivacyPolicy() {
             <address>
               Aspen Malibu Marketing LLC d/b/a AM Marketing<br/>
               Attn: Privacy Team<br/>
-              1011 44th Ave N, Unit 6<br/>
-              Fort Lauderdale, FL 33301<br/>
+              7901 4TH ST N STE 300<br/>
+              ST. PETERSBURG, FL. US 33702<br/>
               Email: <a href="mailto:privacy@aspenmalibumarketing.com">privacy@aspenmalibumarketing.com</a><br/>
               Business Phone: (754) 258-2106<br/>
               <a href="https://www.aspenmalibumarketing.com">aspenmalibumarketing.com</a>
