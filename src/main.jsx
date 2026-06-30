@@ -14,6 +14,8 @@ const BlogIndex = lazy(() => import('./pages/BlogIndex').then(m => ({ default: m
 const BlogPost = lazy(() => import('./pages/BlogPost').then(m => ({ default: m.BlogPost })))
 const BlogTagPage = lazy(() => import('./pages/BlogTagPage').then(m => ({ default: m.BlogTagPage })))
 const ServicePage = lazy(() => import('./pages/ServicePage').then(m => ({ default: m.ServicePage })))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy').then(m => ({ default: m.default })))
+const TermsOfService = lazy(() => import('./pages/TermsOfService').then(m => ({ default: m.default })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })))
 
 function ScrollToTop() {
@@ -42,6 +44,10 @@ const App = () => (
         <Route path="/blog/tag/:tag" element={<BlogTagPage />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/services/:slug" element={<ServiceRoute />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/404" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
