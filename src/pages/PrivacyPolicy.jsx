@@ -1,5 +1,6 @@
 import React from 'react'
-import { Nav, Footer } from '../sections/process-section'
+import { Nav } from '../sections/hero-section'
+import { Footer } from '../sections/process-section'
 import { SeoHead } from '../components/SeoHead'
 
 export default function PrivacyPolicy() {
