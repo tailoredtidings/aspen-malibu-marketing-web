@@ -219,6 +219,11 @@ function Footer() {
             <a href="/#results">Results</a>
           </div>
           <div className="footer-col">
+            <h4>Legal</h4>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+          </div>
+          <div className="footer-col">
             <h4>Connect</h4>
             <a href="tel:+17542582106">Call (754) 258-2106</a>
             <button onClick={() => setShowLead(true)} style={{display:'block',fontSize:14,color:'rgba(250,250,248,0.72)',padding:'5px 0',transition:'color .2s',background:'none',border:'none',cursor:'pointer',textAlign:'left',fontFamily:'inherit'}}>
