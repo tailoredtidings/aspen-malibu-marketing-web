@@ -1888,6 +1888,17 @@ section { position: relative; padding: 120px 0; }
   font-style: italic;
 }
 
+/* Primary full-width Managed Ads add-on (Bespoke only) */
+.est-ao--primary {
+  background: linear-gradient(180deg, #fbfaf5 0%, var(--paper-2) 100%);
+  border-color: rgba(184,145,42,0.35);
+  padding: 14px 16px;
+}
+.est-ao--primary:hover { background: var(--paper); border-color: rgba(184,145,42,0.55); }
+.est-ao--primary.on { border-color: var(--gold); background: var(--paper); }
+.est-ao--primary .est-ao-name { color: var(--ink); }
+.est-ao--primary .est-ao-chk { border-color: rgba(184,145,42,0.4); }
+
 /* Tier starting-at badge */
 .tier-starting {
   display: flex;

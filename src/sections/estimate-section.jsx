@@ -31,7 +31,7 @@ const ADDONS = [
   { id: 'launch',   label: 'Launch Accelerator',           setup: 4995,  monthly: 0,    products: ['site','saas','bespoke'], note: '30-day launch sprint + creative assets' },
   { id: 'audit',    label: 'Forensic Ad Audit',            setup: 3995,  monthly: 0,    products: ['saas','bespoke'],        note: 'AI-powered account analysis — find every dollar of waste' },
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
-  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['saas','bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
+  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
   { id: 'rush',     label: 'Rush 7-day delivery',          setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site'], note: '+30% of one-time setup fee' },
 ];
@@ -39,12 +39,10 @@ const ADDONS = [
 const PRODUCTS = [
   { id: 'site',    label: 'Website Only',        sub: 'Build + managed hosting' },
   { id: 'saas',    label: 'Growth Accelerator',  sub: 'Self-service platform' },
-  { id: 'bespoke', label: 'Bespoke Service',      sub: 'Fully-managed system' },
+  { id: 'bespoke', label: 'Bespoke Service',      sub: 'Full-managed system' },
 ];
 
 const fmt = n => n >= 1000 ? '$' + n.toLocaleString('en-US') : '$' + n;
-const fmtMonthly = (tier, monthly) =>
-  `${fmt(monthly)}${tier.label === 'Enterprise' ? '+' : ''}/mo`;
 
 /* ===== ESTIMATE ===== */
 function Estimate() {
@@ -56,6 +54,10 @@ function Estimate() {
   const [addons, setAddons] = useState({});
 
   const visibleAddons = ADDONS.filter(a => a.products.includes(product));
+
+  // Managed Ads is the primary add-on, only for Bespoke, rendered full-width at top of add-ons
+  const managedAdsAddon = product === 'bespoke' ? visibleAddons.find(a => a.id === 'ads') : null;
+  const otherAddons = visibleAddons.filter(a => a.id !== 'ads');
 
   const totals = useMemo(() => {
     let setup = 0, monthly = 0;
@@ -90,17 +92,7 @@ function Estimate() {
     const rushFee = Math.round((setup + aoSetup) * pctSetup);
     const isEnterpriseSite = (product === 'site' && siteComplexity === 4) || (withSite && siteComplexity === 4);
     const isEnterpriseBespoke = product === 'bespoke' && revTier === 3;
-    const isEnterpriseRevenue =
-      (product === 'saas' || product === 'bespoke') && revTier === 3;
-    const isEnterpriseMonthly = isEnterpriseSite || isEnterpriseRevenue;
-    return {
-      setup: setup + aoSetup + rushFee,
-      monthly: monthly + aoMonthly,
-      isEnterpriseSite,
-      isEnterpriseBespoke,
-      isEnterpriseRevenue,
-      isEnterpriseMonthly,
-    };
+    return { setup: setup + aoSetup + rushFee, monthly: monthly + aoMonthly, isEnterpriseSite, isEnterpriseBespoke };
   }, [product, siteComplexity, revTier, withSite, addons, visibleAddons]);
 
   const tog = useCallback(id => setAddons(p => ({ ...p, [id]: !p[id] })), []);
@@ -170,7 +162,7 @@ function Estimate() {
                     <button key={i} className={`est-seg ${revTier === i ? 'on' : ''}`} onClick={() => setRevTier(i)}>
                       <span className="est-seg-lbl">{s.label}</span>
                       <span className="est-seg-sub">{s.sub}</span>
-                      <span className="est-seg-price">{fmtMonthly(s, s.monthly)}</span>
+                      <span className="est-seg-price">{fmt(s.monthly)}/mo</span>
                     </button>
                   ))}
                 </div>
@@ -184,7 +176,35 @@ function Estimate() {
                   {product === 'site' ? 'C' : (withSite ? 'E' : 'D')}
                 </span><span className="est-group-lbl">Add-ons</span></div>
                 <div className="est-addons">
-                  {visibleAddons.map(ao => (
+                  {managedAdsAddon && (
+                    <button
+                      key={managedAdsAddon.id}
+                      className={`est-ao est-ao--primary ${addons[managedAdsAddon.id] ? 'on' : ''}`}
+                      style={{ gridColumn: '1 / -1' }}
+                      onClick={() => tog(managedAdsAddon.id)}
+                    >
+                      <span className="est-ao-chk">
+                        <IconCheck />
+                      </span>
+                      <span className="est-ao-txt">
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                          <span className="est-ao-name" style={{ fontSize: '15px', fontWeight: 600 }}>{managedAdsAddon.label}</span>
+                          <span style={{
+                            fontSize: '9px', fontFamily: "'Geist Mono', monospace", textTransform: 'uppercase',
+                            letterSpacing: '0.06em', background: 'rgba(184,145,42,0.12)', color: '#8a6f2b',
+                            padding: '1px 6px', borderRadius: 999, lineHeight: 1.6
+                          }}>PRIMARY ADD-ON</span>
+                        </span>
+                        <span className="est-ao-meta" style={{ color: 'var(--gold)', fontWeight: 500 }}>
+                          {managedAdsAddon.meta}
+                        </span>
+                        <span className="est-ao-note" style={{ fontSize: '11.5px', marginTop: 3 }}>
+                          We fully manage your paid campaigns end-to-end. {managedAdsAddon.note}
+                        </span>
+                      </span>
+                    </button>
+                  )}
+                  {otherAddons.map(ao => (
                     <button key={ao.id} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
                       <span className="est-ao-chk">
                         <IconCheck />
@@ -236,11 +256,7 @@ function Estimate() {
                   <span className="est-sum-meta-lbl">Monthly retainer</span>
                   <span className="est-sum-meta-range">3-month minimum</span>
                 </div>
-                <div className="est-sum-fig">
-                  {fmt(totals.monthly)}
-                  {totals.isEnterpriseMonthly ? '+' : ''}
-                  <span className="per">/mo</span>
-                </div>
+                <div className="est-sum-fig">{fmt(totals.monthly)}<span className="per">/mo</span></div>
               </div>
 
               <button className="est-sum-cta" onClick={() => setShowLead(true)}>
