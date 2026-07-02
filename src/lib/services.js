@@ -40,7 +40,7 @@ Bespoke engagements include a forensic ad audit that finds hidden waste in Googl
 
 **Portfolio average:** 5.8× ROAS · $42.7M in client pipeline generated.`,
     faq: [
-      { q: 'What is your ad management fee?', a: '15% of ad spend across Google and Meta, with no minimums. You pay for what we run — billed monthly against actual spend.' },
+      { q: 'What is your ad management fee?', a: '20% of ad spend across Google and Meta, with no minimums. You pay for what we run — billed monthly against actual spend.' },
       { q: 'What is a forensic ad audit?', a: 'A deep AI-powered analysis of your ad accounts to find wasted spend, poor targeting, and missed opportunities. Included in every Bespoke engagement.' },
     ],
     relatedPosts: ['what-we-measure-roas-retention', 'growth-marketing-retainer-cost'],

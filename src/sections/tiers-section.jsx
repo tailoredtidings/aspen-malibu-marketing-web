@@ -199,7 +199,7 @@ const TIERS_DATA = [
       'Senior team: strategy & daily execution',
       'Fully managed SEO, content & lead gen',
       'Managed social media & Google Business',
-      'Managed Ads (15% of spend) — primary add-on',
+      'Managed Ads (20% of spend) — primary add-on',
       'Monthly strategy calls & revenue reporting',
     ],
     cta: 'Estimate my scope',

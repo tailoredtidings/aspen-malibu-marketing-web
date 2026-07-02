@@ -10,6 +10,7 @@ Knowledge graph for AI agents. See individual concept files in this directory.
 
 ## Concepts
 
+- [paid-ads-that-compound.md](./paid-ads-that-compound.md): Paid Ads That Actually Compound: Our Forensic + GEO + AI Approach to 5.8× ROAS
 - [ai-voice-agents-local-business.md](./ai-voice-agents-local-business.md): AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead
 - [case-study-medical-practice-bookings.md](./case-study-medical-practice-bookings.md): Case Study: How Meridian Health Partners Increased Bookings 312% in 90 Days
 - [generative-engine-optimization-guide.md](./generative-engine-optimization-guide.md): Generative Engine Optimization (GEO): The Complete 2026 Guide

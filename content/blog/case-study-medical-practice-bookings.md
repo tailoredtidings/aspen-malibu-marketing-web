@@ -28,7 +28,7 @@ Dr. Chen's words at kickoff: "I should probably do something about marketing." H
 
 ## The Engagement
 
-Meridian Health Partners signed Bespoke Service at the Growth Business tier — $18,995 setup and $5,495/month — with managed Google Ads at 15% of spend. We scoped the engagement across five workstreams, live in **14 days**:
+Meridian Health Partners signed Bespoke Service at the Growth Business tier — $18,995 setup and $5,495/month — with managed Google Ads at 20% of spend. We scoped the engagement across five workstreams, live in **14 days**:
 
 1. **Rebrand and conversion website** — custom site with appointment booking, service pages, provider bios, and insurance information
 2. **Local SEO domination** — Google Business Profile optimization, citation cleanup, content cluster for top service queries

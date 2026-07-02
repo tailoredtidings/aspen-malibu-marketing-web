@@ -31,7 +31,7 @@ const ADDONS = [
   { id: 'launch',   label: 'Launch Accelerator',           setup: 4995,  monthly: 0,    products: ['site','saas','bespoke'], note: '30-day launch sprint + creative assets' },
   { id: 'audit',    label: 'Forensic Ad Audit',            setup: 3995,  monthly: 0,    products: ['saas','bespoke'],        note: 'AI-powered account analysis — find every dollar of waste' },
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
-  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
+  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.20, products: ['bespoke'], meta: '20% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
   { id: 'rush',     label: 'Rush delivery',                setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site','saas','bespoke'], requiresSite: ['saas','bespoke'] },
 ];

@@ -29,7 +29,7 @@ Both engagements share the same technology stack. The question is not "which too
 | **Signup** | Self-service, no call required | Scoped via estimator + call |
 | **Website** | Optional add-on | Custom site included |
 | **SEO & content** | You execute (tools provided) | We manage fully |
-| **Paid ads** | Optional add-on (15% of spend) | Managed available (15% of spend) |
+| **Paid ads** | Optional add-on (20% of spend) | Managed available (20% of spend) |
 | **Forensic ad audit** | $3,995 add-on | Included |
 | **Strategy calls** | On-demand support | Monthly scheduled calls |
 | **AI agents** | Included (voice, chat, content, reviews) | Included + we optimize |
@@ -116,7 +116,7 @@ The platform is identical. Bespoke adds the human layer on top.
 Honest boundaries matter:
 
 - **Neither is a "set and forget" magic button.** Growth Accelerator requires your operation. Bespoke requires your feedback and approval on strategy.
-- **Neither includes unlimited ad spend.** Media budgets are yours; we charge 15% management if we run campaigns.
+- **Neither includes unlimited ad spend.** Media budgets are yours; we charge 20% management if we run campaigns.
 - **Neither guarantees specific rankings or ROAS numbers.** We report what we achieve — 5.8× average ROAS across the portfolio — but every market differs.
 - **Neither replaces a broken business model.** Marketing amplifies what works. It does not fix fundamental product-market fit problems.
 

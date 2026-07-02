@@ -63,7 +63,7 @@ Standard launch: **14 days** from kickoff. Rush delivery (7 days) available as a
 | Launch Accelerator | $4,995 setup | 30-day launch sprint + creative assets |
 | Forensic Ad Audit | $3,995 setup | AI-powered ad account waste analysis |
 | Monthly Ad Intelligence | $2,995/mo | Ongoing monitoring + optimization sprints |
-| Managed Ads | 15% of spend | Google, Meta, TikTok, YouTube — no minimums |
+| Managed Ads | 20% of spend | Google, Meta, TikTok, YouTube — no minimums |
 | Premium AI Usage | Usage-based | Beyond included plan limits |
 | Managed Website | From $995/mo | Optional — we build and maintain your site |
 
@@ -90,7 +90,7 @@ Bespoke Service is for operators who want a senior team running the entire reven
 - Managed social media and Google Business Profile
 - Forensic ad audit included (not an add-on)
 - Monthly strategy calls and revenue reporting
-- Ad management available at 15% of spend
+- Ad management available at 20% of spend
 
 Bespoke is our most popular engagement — and the path behind our highest-profile results, including Meridian Health Partners' **312% booking increase** and **47% CPA reduction**.
 
@@ -130,7 +130,7 @@ Our average client ROAS is **5.8×**. The retainer is not a cost center when the
 
 ## What Is NOT Included (Transparency Matters)
 
-- **Ad spend itself** — You fund media directly; we charge 15% management if you want us running campaigns
+- **Ad spend itself** — You fund media directly; we charge 20% management if you want us running campaigns
 - **Premium AI usage beyond plan limits** — Voice and chat minutes above included tiers are usage-billed
 - **Photography, video production, and print** — Creative production is scoped separately when needed
 - **Third-party software you choose independently** — We integrate; we do not resell arbitrary tools
@@ -176,4 +176,4 @@ Yes. Growth Accelerator pricing is fully published and self-service. Bespoke and
 
 **How does ad management pricing work?**
 
-Managed ads are billed at 15% of actual monthly spend across Google, Meta, TikTok, and YouTube. No minimum spend required. You pay media costs directly to the platforms. The forensic ad audit ($3,995 for Growth Accelerator, included in Bespoke) identifies waste before we spend a dollar.
+Managed ads are billed at 20% of actual monthly spend across Google, Meta, TikTok, and YouTube. No minimum spend required. You pay media costs directly to the platforms. The forensic ad audit ($3,995 for Growth Accelerator, included in Bespoke) identifies waste before we spend a dollar.

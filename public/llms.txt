@@ -27,7 +27,8 @@ Full reference: [llms-full.txt](https://www.aspenmalibumarketing.com/llms-full.t
 
 ## Insights (Blog)
 
-- [All insights](https://www.aspenmalibumarketing.com/blog): 8 guides on GEO, AI search, pricing, and growth systems
+- [All insights](https://www.aspenmalibumarketing.com/blog): 9 guides on GEO, AI search, pricing, and growth systems
+- [Paid Ads That Actually Compound: Our Forensic + GEO + AI Approach to 5.8× ROAS](https://www.aspenmalibumarketing.com/blog/paid-ads-that-compound): Most agencies run disconnected ad campaigns that burn budget on low-quality leads. We combine forensic audits, GEO, and AI automation to turn paid spend into consistent 5.8× ROAS and real pipeline growth.
 - [AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead](https://www.aspenmalibumarketing.com/blog/ai-voice-agents-local-business): How AI voice agents help local businesses answer 100% of calls 24/7, book appointments automatically, and pay for the entire marketing retainer.
 - [Case Study: How Meridian Health Partners Increased Bookings 312% in 90 Days](https://www.aspenmalibumarketing.com/blog/case-study-medical-practice-bookings): Meridian Health Partners grew new patient bookings 312%, cut CPA 47%, and hit ROI in 2.1 months with Aspen Malibu Marketing's Bespoke Service.
 - [Generative Engine Optimization (GEO): The Complete 2026 Guide](https://www.aspenmalibumarketing.com/blog/generative-engine-optimization-guide): What GEO is, why it matters in 2026, and how Aspen Malibu Marketing helps brands get cited in AI search — not just ranked on Google.
@@ -39,6 +40,10 @@ Full reference: [llms-full.txt](https://www.aspenmalibumarketing.com/llms-full.t
 
 ## Topics
 
+- [Paid Ads](https://www.aspenmalibumarketing.com/blog/tag/paid-ads): Articles tagged Paid Ads
+- [GEO](https://www.aspenmalibumarketing.com/blog/tag/geo): Articles tagged GEO
+- [AI Automation](https://www.aspenmalibumarketing.com/blog/tag/ai-automation): Articles tagged AI Automation
+- [ROAS](https://www.aspenmalibumarketing.com/blog/tag/roas): Articles tagged ROAS
 - [Voice AI](https://www.aspenmalibumarketing.com/blog/tag/voice-ai): Articles tagged Voice AI
 - [Local Business](https://www.aspenmalibumarketing.com/blog/tag/local-business): Articles tagged Local Business
 - [Automation](https://www.aspenmalibumarketing.com/blog/tag/automation): Articles tagged Automation
@@ -46,7 +51,6 @@ Full reference: [llms-full.txt](https://www.aspenmalibumarketing.com/llms-full.t
 - [Case Study](https://www.aspenmalibumarketing.com/blog/tag/case-study): Articles tagged Case Study
 - [Medical Marketing](https://www.aspenmalibumarketing.com/blog/tag/medical-marketing): Articles tagged Medical Marketing
 - [Local SEO](https://www.aspenmalibumarketing.com/blog/tag/local-seo): Articles tagged Local SEO
-- [GEO](https://www.aspenmalibumarketing.com/blog/tag/geo): Articles tagged GEO
 - [AI Search](https://www.aspenmalibumarketing.com/blog/tag/ai-search): Articles tagged AI Search
 - [SEO](https://www.aspenmalibumarketing.com/blog/tag/seo): Articles tagged SEO
 - [Marketing Strategy](https://www.aspenmalibumarketing.com/blog/tag/marketing-strategy): Articles tagged Marketing Strategy
@@ -62,7 +66,6 @@ Full reference: [llms-full.txt](https://www.aspenmalibumarketing.com/llms-full.t
 - [Growth Accelerator](https://www.aspenmalibumarketing.com/blog/tag/growth-accelerator): Articles tagged Growth Accelerator
 - [Bespoke Service](https://www.aspenmalibumarketing.com/blog/tag/bespoke-service): Articles tagged Bespoke Service
 - [Agency Comparison](https://www.aspenmalibumarketing.com/blog/tag/agency-comparison): Articles tagged Agency Comparison
-- [ROAS](https://www.aspenmalibumarketing.com/blog/tag/roas): Articles tagged ROAS
 - [Metrics](https://www.aspenmalibumarketing.com/blog/tag/metrics): Articles tagged Metrics
 - [KPIs](https://www.aspenmalibumarketing.com/blog/tag/kpis): Articles tagged KPIs
 - [Marketing Analytics](https://www.aspenmalibumarketing.com/blog/tag/marketing-analytics): Articles tagged Marketing Analytics

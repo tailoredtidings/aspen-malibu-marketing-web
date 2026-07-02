@@ -81,7 +81,7 @@ This approach delivers the highest ROI for operators who:
 
 In **Growth Accelerator**, you can add the forensic audit and managed ads as options while operating the rest of the platform yourself.
 
-In **Bespoke Service**, ad management (at 15% of spend) is part of the fully managed engine, including the audit and full integration with GEO and AI layers.
+In **Bespoke Service**, ad management (at 20% of spend) is part of the fully managed engine, including the audit and full integration with GEO and AI layers.
 
 ## How to Get Started
 
@@ -111,7 +111,7 @@ Strong entity signals and answer-engine content make your brand more recognizabl
 
 **Do I have to run ads through you?**
 
-No. Growth Accelerator clients can add the forensic audit and use our reporting while managing their own campaigns. Many choose full managed ads (15% of spend) for the integration and optimization we provide.
+No. Growth Accelerator clients can add the forensic audit and use our reporting while managing their own campaigns. Many choose full managed ads (20% of spend) for the integration and optimization we provide.
 
 **How quickly do results show?**
 

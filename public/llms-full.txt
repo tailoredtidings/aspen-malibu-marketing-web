@@ -1,5 +1,5 @@
 # Aspen Malibu Marketing — Full Reference
-Generated: 2026-06-17
+Generated: 2026-07-02
 
 > Premium growth studio for ambitious operators. We build profit machines — not marketing campaigns.
 
@@ -21,7 +21,12 @@ Generated: 2026-06-17
 - AI Automation — https://www.aspenmalibumarketing.com/services/ai-automation: Voice AI, chatbots, content AI, reviews AI, workflows
 - Generative Engine Optimization (GEO) — https://www.aspenmalibumarketing.com/services/geo: llms.txt, schema, OKF, AI citation architecture
 
-## All blog posts (8)
+## All blog posts (9)
+
+### Paid Ads That Actually Compound: Our Forensic + GEO + AI Approach to 5.8× ROAS
+Most agencies run disconnected ad campaigns that burn budget on low-quality leads. We combine forensic audits, GEO, and AI automation to turn paid spend into consistent 5.8× ROAS and real pipeline growth.
+URL: https://www.aspenmalibumarketing.com/blog/paid-ads-that-compound
+Tags: Paid Ads, GEO, AI Automation, ROAS
 
 ### AI Voice Agents for Local Businesses: Answer Every Call, Book Every Lead
 How AI voice agents help local businesses answer 100% of calls 24/7, book appointments automatically, and pay for the entire marketing retainer.
