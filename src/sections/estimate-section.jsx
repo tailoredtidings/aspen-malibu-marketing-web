@@ -33,8 +33,22 @@ const ADDONS = [
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
   { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
-  { id: 'rush',     label: 'Rush 7-day delivery',          setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site'], note: '+30% of one-time setup fee' },
+  { id: 'rush',     label: 'Rush delivery',                setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site','saas','bespoke'], requiresSite: ['saas','bespoke'], note: '+30% of one-time setup fee' },
 ];
+
+const RUSH_DAYS_BY_COMPLEXITY = [7, 7, 7, 14, 21];
+
+function rushAddonForComplexity(siteComplexity) {
+  const days = RUSH_DAYS_BY_COMPLEXITY[siteComplexity] ?? 7;
+  return {
+    id: 'rush',
+    label: `Rush ${days}-day delivery`,
+    setup: 0,
+    monthly: 0,
+    pctSetup: 0.30,
+    note: `+30% of one-time setup fee — compressed ${days}-day website launch`,
+  };
+}
 
 const PRODUCTS = [
   { id: 'site',    label: 'Website Only',        sub: 'Build + managed hosting' },
@@ -55,7 +69,15 @@ function Estimate() {
   const [revTier, setRevTier] = useState(1);
   const [addons, setAddons] = useState({});
 
-  const visibleAddons = ADDONS.filter(a => a.products.includes(product));
+  const visibleAddons = useMemo(() => ADDONS
+    .filter(a => {
+      if (!a.products.includes(product)) return false;
+      if (a.requiresSite?.includes(product) && !withSite) return false;
+      return true;
+    })
+    .map(a => (a.id === 'rush' ? rushAddonForComplexity(siteComplexity) : a)),
+  [product, withSite, siteComplexity]);
+
   const managedAdsAddon = visibleAddons.find(a => a.id === 'ads');
   const otherAddons = visibleAddons.filter(a => a.id !== 'ads');
 
@@ -138,7 +160,13 @@ function Estimate() {
             {(product === 'saas' || product === 'bespoke') && (
               <div className="est-group">
                 <div className="est-group-head"><span className="est-group-num">B</span><span className="est-group-lbl">Add a managed website?</span></div>
-                <button type="button" aria-pressed={withSite} className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => setWithSite(p => !p)}>
+                <button type="button" aria-pressed={withSite} className={`est-toggle ${withSite ? 'on' : ''}`} onClick={() => {
+                  setWithSite(p => {
+                    const next = !p;
+                    if (!next) setAddons(prev => { const { rush, ...rest } = prev; return rest; });
+                    return next;
+                  });
+                }}>
                   <span className="est-toggle-check">
                     <IconCheck />
                   </span>
@@ -218,9 +246,9 @@ function Estimate() {
                         </span>
                         <span className="est-ao-txt">
                           <span className="est-ao-name">{ao.label}</span>
-                          {!ao.pctSetup && (
+                          {(!ao.pctSetup || ao.id === 'rush') && (
                             <span className="est-ao-meta">
-                              {ao.meta ? ao.meta : (
+                              {ao.id === 'rush' ? '+30% setup fee' : ao.meta ? ao.meta : (
                                 <>
                                   {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
                                   {ao.setup > 0 && ao.monthly > 0 && ' · '}
