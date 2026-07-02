@@ -46,7 +46,6 @@ function rushAddonForComplexity(siteComplexity) {
     setup: 0,
     monthly: 0,
     pctSetup: 0.30,
-    note: `+30% of one-time setup fee — compressed ${days}-day website launch`,
   };
 }
 
@@ -258,7 +257,7 @@ function Estimate() {
                               )}
                             </span>
                           )}
-                          <span className="est-ao-note">{ao.note}</span>
+                          {ao.id !== 'rush' && <span className="est-ao-note">{ao.note}</span>}
                         </span>
                       </button>
                     ))}
