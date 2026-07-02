@@ -31,7 +31,7 @@ const ADDONS = [
   { id: 'launch',   label: 'Launch Accelerator',           setup: 4995,  monthly: 0,    products: ['site','saas','bespoke'], note: '30-day launch sprint + creative assets' },
   { id: 'audit',    label: 'Forensic Ad Audit',            setup: 3995,  monthly: 0,    products: ['saas','bespoke'],        note: 'AI-powered account analysis — find every dollar of waste' },
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
-  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['saas','bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
+  { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
   { id: 'rush',     label: 'Rush 7-day delivery',          setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site'], note: '+30% of one-time setup fee' },
 ];
@@ -56,6 +56,8 @@ function Estimate() {
   const [addons, setAddons] = useState({});
 
   const visibleAddons = ADDONS.filter(a => a.products.includes(product));
+  const managedAdsAddon = visibleAddons.find(a => a.id === 'ads');
+  const otherAddons = visibleAddons.filter(a => a.id !== 'ads');
 
   const totals = useMemo(() => {
     let setup = 0, monthly = 0;
@@ -183,31 +185,57 @@ function Estimate() {
                 <div className="est-group-head"><span className="est-group-num">
                   {product === 'site' ? 'C' : (withSite ? 'E' : 'D')}
                 </span><span className="est-group-lbl">Add-ons</span></div>
-                <div className="est-addons" role="group" aria-label="Optional add-ons">
-                  {visibleAddons.map(ao => (
-                    <button key={ao.id} type="button" aria-pressed={!!addons[ao.id]} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
-                      <span className="est-ao-chk">
-                        <IconCheck />
-                      </span>
-                      <span className="est-ao-txt">
-                        <span className="est-ao-name">{ao.label}</span>
-                        {!ao.pctSetup && (
-                          <span className="est-ao-meta">
-                            {ao.meta ? ao.meta : (
-                              <>
-                                {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
-                                {ao.setup > 0 && ao.monthly > 0 && ' · '}
-                                {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
-                                {ao.pctSpend && `+${Math.round(ao.pctSpend * 100)}% of ad spend`}
-                              </>
-                            )}
-                          </span>
-                        )}
-                        <span className="est-ao-note">{ao.note}</span>
-                      </span>
+
+                {product === 'bespoke' && managedAdsAddon && (
+                  <div className="est-addons-primary">
+                    <button
+                      type="button"
+                      aria-pressed={!!addons[managedAdsAddon.id]}
+                      className={`est-ao est-ao--primary ${addons[managedAdsAddon.id] ? 'on' : ''}`}
+                      onClick={() => tog(managedAdsAddon.id)}
+                    >
+                      <span className="est-ao-primary-badge">Recommended</span>
+                      <div className="est-ao-main">
+                        <span className="est-ao-chk">
+                          <IconCheck />
+                        </span>
+                        <div className="est-ao-primary-body">
+                          <span className="est-ao-name">{managedAdsAddon.label}</span>
+                          <span className="est-ao-meta">{managedAdsAddon.meta}</span>
+                        </div>
+                      </div>
+                      <span className="est-ao-note">{managedAdsAddon.note}</span>
                     </button>
-                  ))}
-                </div>
+                  </div>
+                )}
+
+                {otherAddons.length > 0 && (
+                  <div className="est-addons" role="group" aria-label={product === 'bespoke' ? 'Additional add-ons' : 'Optional add-ons'}>
+                    {otherAddons.map(ao => (
+                      <button key={ao.id} type="button" aria-pressed={!!addons[ao.id]} className={`est-ao ${addons[ao.id] ? 'on' : ''}`} onClick={() => tog(ao.id)}>
+                        <span className="est-ao-chk">
+                          <IconCheck />
+                        </span>
+                        <span className="est-ao-txt">
+                          <span className="est-ao-name">{ao.label}</span>
+                          {!ao.pctSetup && (
+                            <span className="est-ao-meta">
+                              {ao.meta ? ao.meta : (
+                                <>
+                                  {ao.setup > 0 && `+${fmt(ao.setup)} setup`}
+                                  {ao.setup > 0 && ao.monthly > 0 && ' · '}
+                                  {ao.monthly > 0 && `+${fmt(ao.monthly)}/mo`}
+                                  {ao.pctSpend && `+${Math.round(ao.pctSpend * 100)}% of ad spend`}
+                                </>
+                              )}
+                            </span>
+                          )}
+                          <span className="est-ao-note">{ao.note}</span>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </div>
