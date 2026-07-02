@@ -33,7 +33,7 @@ const ADDONS = [
   { id: 'searchmo', label: 'Monthly Ad Intelligence',      setup: 0,     monthly: 2995, products: ['saas','bespoke'],        note: 'Ongoing monitoring + monthly optimization sprints' },
   { id: 'ads',      label: 'Managed Ads',                  setup: 0,     monthly: 0,    pctSpend: 0.15, products: ['bespoke'], meta: '15% of ad spend', note: 'Google, Meta, TikTok & YouTube — billed monthly against actual spend' },
   { id: 'aiuse',    label: 'Premium AI Usage',             setup: 0,     monthly: 0,    products: ['saas','bespoke'],        meta: 'Billed on usage', note: 'Voice, chat & content AI beyond included plan limits' },
-  { id: 'rush',     label: 'Rush delivery',                setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site','saas','bespoke'], requiresSite: ['saas','bespoke'], note: '+30% of one-time setup fee' },
+  { id: 'rush',     label: 'Rush delivery',                setup: 0,     monthly: 0,    pctSetup: 0.30, products: ['site','saas','bespoke'], requiresSite: ['saas','bespoke'] },
 ];
 
 const RUSH_DAYS_BY_COMPLEXITY = [7, 7, 7, 14, 21];
@@ -257,7 +257,7 @@ function Estimate() {
                               )}
                             </span>
                           )}
-                          {ao.id !== 'rush' && <span className="est-ao-note">{ao.note}</span>}
+                          {ao.note && <span className="est-ao-note">{ao.note}</span>}
                         </span>
                       </button>
                     ))}
