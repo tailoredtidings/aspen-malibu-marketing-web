@@ -16,6 +16,7 @@ const BlogTagPage = lazy(() => import('./pages/BlogTagPage').then(m => ({ defaul
 const ServicePage = lazy(() => import('./pages/ServicePage').then(m => ({ default: m.ServicePage })))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy').then(m => ({ default: m.default })))
 const TermsOfService = lazy(() => import('./pages/TermsOfService').then(m => ({ default: m.default })))
+const GrowthAuditPage = lazy(() => import('./pages/GrowthAuditPage').then(m => ({ default: m.default })))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })))
 
 function ScrollToTop() {
@@ -48,6 +49,8 @@ const App = () => (
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        {/* Hidden email-funnel page — not linked from site chrome or sitemap */}
+        <Route path="/free-growth-audit" element={<GrowthAuditPage />} />
         <Route path="/404" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

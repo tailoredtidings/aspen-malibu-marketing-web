@@ -45,12 +45,18 @@ export function SeoHead({
   article,
   faq,
   breadcrumbs,
+  noindex = false,
 }) {
   useEffect(() => {
     const url = `${SITE}${path}`
     document.title = title
     setMeta('description', description)
     setLink('canonical', url)
+    if (noindex) {
+      setMeta('robots', 'noindex, nofollow')
+    } else {
+      document.querySelector('meta[name="robots"]')?.remove()
+    }
     setMeta('og:title', title, 'property')
     setMeta('og:description', description, 'property')
     setMeta('og:url', url, 'property')
@@ -117,7 +123,7 @@ export function SeoHead({
       const existing = document.getElementById('seo-faq')
       existing?.remove()
     }
-  }, [title, description, path, image, type, article, faq, breadcrumbs])
+  }, [title, description, path, image, type, article, faq, breadcrumbs, noindex])
 
   return null
 }

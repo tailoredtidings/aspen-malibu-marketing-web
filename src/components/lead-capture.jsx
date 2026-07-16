@@ -38,7 +38,7 @@ async function sendLeadEmail(payload) {
   })
 }
 
-export function LeadCapture({ onClose, source = 'general' }) {
+export function LeadCapture({ onClose, source = 'general', embedded = false }) {
   const [step, setStep] = useState(1)
   const [form, setForm] = useState({
     firstName: '',
@@ -51,11 +51,12 @@ export function LeadCapture({ onClose, source = 'general' }) {
   })
 
   useEffect(() => {
+    trackEvent('lead_capture_open', { source })
+    if (embedded) return
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    trackEvent('lead_capture_open', { source })
     return () => { document.body.style.overflow = prev }
-  }, [source])
+  }, [source, embedded])
 
   const modalRef = useRef(null)
   useEffect(() => {
@@ -69,7 +70,7 @@ export function LeadCapture({ onClose, source = 'general' }) {
     first?.focus()
 
     const onKey = (e) => {
-      if (e.key === 'Escape') { onClose(); return }
+      if (e.key === 'Escape' && !embedded && onClose) { onClose(); return }
       if (e.key !== 'Tab') return
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault()
@@ -81,7 +82,7 @@ export function LeadCapture({ onClose, source = 'general' }) {
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
-  }, [onClose, step])
+  }, [onClose, step, embedded])
 
   const update = useCallback((k, v) => setForm(f => ({ ...f, [k]: v })), [])
 
@@ -115,90 +116,110 @@ export function LeadCapture({ onClose, source = 'general' }) {
     setStep(2)
   }
 
+  const formBody = (
+    <>
+      {step === 1 && (
+        <div className="modal-body">
+          <span className="modal-eyebrow">Free Growth Audit · No Obligation</span>
+          <h2 id="lead-title" className="modal-title">Let's find your <em>leaks.</em></h2>
+          <p className="modal-desc">Tell us about your business. We'll audit your funnel, ads, and website — then send you a 3-minute video showing exactly where you're losing revenue and how to fix it.</p>
+
+          <div className="modal-form">
+            <div className="modal-field-row">
+              <div className="modal-field">
+                <label htmlFor="lc-fname">First name *</label>
+                <input id="lc-fname" type="text" placeholder="John" value={form.firstName} onChange={e => update('firstName', e.target.value)} autoComplete="given-name" />
+              </div>
+              <div className="modal-field">
+                <label htmlFor="lc-lname">Last name *</label>
+                <input id="lc-lname" type="text" placeholder="Doe" value={form.lastName} onChange={e => update('lastName', e.target.value)} autoComplete="family-name" />
+              </div>
+            </div>
+            <div className="modal-field">
+              <label htmlFor="lc-email">Business email *</label>
+              <input id="lc-email" type="email" placeholder="you@yourbusiness.com" value={form.email} onChange={e => update('email', e.target.value)} autoComplete="email" />
+            </div>
+            <div className="modal-field">
+              <label htmlFor="lc-phone">Phone *</label>
+              <input id="lc-phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={e => update('phone', e.target.value)} autoComplete="tel" />
+            </div>
+            <div className="modal-field">
+              <label htmlFor="lc-biz">Business name *</label>
+              <input id="lc-biz" type="text" placeholder="Acme Co." value={form.business} onChange={e => update('business', e.target.value)} autoComplete="organization" />
+            </div>
+            <div className="modal-field">
+              <label htmlFor="lc-site">Website (optional)</label>
+              <input id="lc-site" type="text" placeholder="https://yourbusiness.com" value={form.website} onChange={e => update('website', e.target.value)} autoComplete="url" />
+            </div>
+            <div className="modal-field">
+              <label htmlFor="lc-challenge">Biggest growth challenge right now?</label>
+              <textarea id="lc-challenge" rows="3" placeholder="Not enough leads? High cost per acquisition? Can't scale ads?" value={form.challenge} onChange={e => update('challenge', e.target.value)} style={{resize:'vertical',fontFamily:'inherit',lineHeight:1.5}} />
+            </div>
+          </div>
+
+          <button
+            className={`modal-cta ${canSubmit ? 'ready' : ''}`}
+            onClick={submit}
+            disabled={!canSubmit}
+          >
+            {canSubmit ? 'Send my free audit request' : 'Fill required fields to continue'}
+            <IconArrow />
+          </button>
+          <p className="modal-note">We reply within 24 hours. No spam. No sales pressure. Just an honest audit.</p>
+        </div>
+      )}
+
+      {step === 2 && (
+        <div className="modal-body" style={{ textAlign: 'center', gap: 24 }}>
+          <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--gold-bg)', border: '1px solid rgba(184,145,42,0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <span className="modal-eyebrow">Request Received</span>
+            <h2 className="modal-title" style={{ marginTop: 8 }}>We'll be in <em>touch.</em></h2>
+          </div>
+          <p className="modal-desc" style={{ margin: '0 auto', maxWidth: 400 }}>
+            A senior strategist will review your business and send your personalized audit within 24 hours. If you're a fit, we'll book a 30-min call to walk through it together.
+          </p>
+          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="mailto:partners@aspenmalibumarketing.com" className="modal-cta ready" style={{ width: 'auto', padding: '14px 22px' }}>
+              Email us directly
+              <IconArrow />
+            </a>
+            <a href="tel:+17542582106" className="btn-outline" style={{ padding: '14px 22px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              Call (754) 258-2106
+            </a>
+            {!embedded && onClose && (
+              <button className="btn-outline" onClick={onClose} style={{ padding: '14px 22px' }}>
+                Close
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  )
+
+  if (embedded) {
+    return (
+      <div
+        className="modal-card funnel-form-card"
+        ref={modalRef}
+        role="form"
+        aria-labelledby="lead-title"
+      >
+        {formBody}
+      </div>
+    )
+  }
+
   return (
     <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
       <div className="modal-card" ref={modalRef} role="dialog" aria-modal="true" aria-labelledby="lead-title">
         <button className="modal-close" onClick={onClose} aria-label="Close lead form">
           <IconClose />
         </button>
-
-        {step === 1 && (
-          <div className="modal-body">
-            <span className="modal-eyebrow">Free Growth Audit · No Obligation</span>
-            <h2 id="lead-title" className="modal-title">Let's find your <em>leaks.</em></h2>
-            <p className="modal-desc">Tell us about your business. We'll audit your funnel, ads, and website — then send you a 3-minute video showing exactly where you're losing revenue and how to fix it.</p>
-
-            <div className="modal-form">
-              <div className="modal-field-row">
-                <div className="modal-field">
-                  <label htmlFor="lc-fname">First name *</label>
-                  <input id="lc-fname" type="text" placeholder="John" value={form.firstName} onChange={e => update('firstName', e.target.value)} />
-                </div>
-                <div className="modal-field">
-                  <label htmlFor="lc-lname">Last name *</label>
-                  <input id="lc-lname" type="text" placeholder="Doe" value={form.lastName} onChange={e => update('lastName', e.target.value)} />
-                </div>
-              </div>
-              <div className="modal-field">
-                <label htmlFor="lc-email">Business email *</label>
-                <input id="lc-email" type="email" placeholder="you@yourbusiness.com" value={form.email} onChange={e => update('email', e.target.value)} />
-                </div>
-              <div className="modal-field">
-                <label htmlFor="lc-phone">Phone *</label>
-                <input id="lc-phone" type="tel" placeholder="+1 (555) 000-0000" value={form.phone} onChange={e => update('phone', e.target.value)} />
-                </div>
-              <div className="modal-field">
-                <label htmlFor="lc-biz">Business name *</label>
-                <input id="lc-biz" type="text" placeholder="Acme Co." value={form.business} onChange={e => update('business', e.target.value)} />
-                </div>
-              <div className="modal-field">
-                <label htmlFor="lc-site">Website (optional)</label>
-                <input id="lc-site" type="text" placeholder="https://yourbusiness.com" value={form.website} onChange={e => update('website', e.target.value)} />
-                </div>
-              <div className="modal-field">
-                <label htmlFor="lc-challenge">Biggest growth challenge right now?</label>
-                <textarea id="lc-challenge" rows="3" placeholder="Not enough leads? High cost per acquisition? Can't scale ads?" value={form.challenge} onChange={e => update('challenge', e.target.value)} style={{resize:'vertical',fontFamily:'inherit',lineHeight:1.5}} />
-              </div>
-            </div>
-
-            <button
-              className={`modal-cta ${canSubmit ? 'ready' : ''}`}
-              onClick={submit}
-              disabled={!canSubmit}
-            >
-              {canSubmit ? 'Send my free audit request' : 'Fill required fields to continue'}
-              <IconArrow />
-            </button>
-            <p className="modal-note">We reply within 24 hours. No spam. No sales pressure. Just an honest audit.</p>
-          </div>
-        )}
-
-        {step === 2 && (
-          <div className="modal-body" style={{ textAlign: 'center', gap: 24 }}>
-            <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--gold-bg)', border: '1px solid rgba(184,145,42,0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto' }}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-            </div>
-            <div>
-              <span className="modal-eyebrow">Request Received</span>
-              <h2 className="modal-title" style={{ marginTop: 8 }}>We'll be in <em>touch.</em></h2>
-            </div>
-            <p className="modal-desc" style={{ margin: '0 auto', maxWidth: 400 }}>
-              A senior strategist will review your business and send your personalized audit within 24 hours. If you're a fit, we'll book a 30-min call to walk through it together.
-            </p>
-            <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="mailto:partners@aspenmalibumarketing.com" className="modal-cta ready" style={{ width: 'auto', padding: '14px 22px' }}>
-                Email us directly
-                <IconArrow />
-              </a>
-              <a href="tel:+17542582106" className="btn-outline" style={{ padding: '14px 22px', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                Call (754) 258-2106
-              </a>
-              <button className="btn-outline" onClick={onClose} style={{ padding: '14px 22px' }}>
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+        {formBody}
       </div>
     </div>
   )

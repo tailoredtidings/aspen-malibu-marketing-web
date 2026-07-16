@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Email-campaign funnel page — direct link only, not for discovery
+Disallow: /free-growth-audit
 
 User-agent: GPTBot
 Allow: /
